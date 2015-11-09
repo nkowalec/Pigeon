@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="340fc1f12bbb4aa8addce35b4d21980c" Name="StrefaA" >
+        <EntityTypeShape EntityType="PDBModel.Podmiot" PointX="0.75" PointY="5.375" Width="1.5" />
+        <EntityTypeShape EntityType="PDBModel.DefKontaktu" PointX="5.25" PointY="5.625" Width="1.5" />
+        <EntityTypeShape EntityType="PDBModel.Kontakt" PointX="3" PointY="5.375" Width="1.5" />
+        <AssociationConnector Association="PDBModel.PodmiotKontakt" />
+        <AssociationConnector Association="PDBModel.KontaktDefKontaktu" />
+        <EntityTypeShape EntityType="PDBModel.Adres" PointX="0.75" PointY="7.875" Width="1.5" />
+        <AssociationConnector Association="PDBModel.PodmiotAdres" />
+      </Diagram>
+      <Diagram DiagramId="27ff5b3115754d1d94e69d6588abcb1d" Name="StrefaK" >
+        <EntityTypeShape EntityType="PDBModel.Wiadomość" Width="1.5" PointX="1.5" PointY="0.5" />
+        <EntityTypeShape EntityType="PDBModel.AdresatDW" Width="1.5" PointX="5.25" PointY="0.625" />
+        <AssociationConnector Association="PDBModel.WiadomośćAdresatDW" />
+        <AssociationConnector Association="PDBModel.WiadomośćAdresatDW1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
