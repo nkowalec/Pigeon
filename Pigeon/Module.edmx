@@ -46,6 +46,16 @@
             <End Role="Wiadomość" EntitySet="Wiadomości" />
             <End Role="AdresatDW" EntitySet="AdresaciDW" />
           </AssociationSet>
+          <EntitySet Name="Zadania" EntityType="PDBModel.Zadanie" />
+          <AssociationSet Name="ZadanieRowPodmiot" Association="PDBModel.ZadanieRowPodmiot">
+            <End Role="ZadanieRow" EntitySet="Zadania" />
+            <End Role="Podmiot" EntitySet="Podmioty" />
+          </AssociationSet>
+          <EntitySet Name="Załączniki" EntityType="PDBModel.Załącznik" />
+          <AssociationSet Name="ZałącznikWiadomość" Association="PDBModel.ZałącznikWiadomość">
+            <End Role="Załącznik" EntitySet="Załączniki" />
+            <End Role="Wiadomość" EntitySet="Wiadomości" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Podmiot">
           <Key>
@@ -150,6 +160,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Adresat" Relationship="PDBModel.WiadomośćKontakt" FromRole="Wiadomość" ToRole="Kontakt" />
           <NavigationProperty Name="AdresaciDW" Relationship="PDBModel.WiadomośćAdresatDW1" FromRole="Wiadomość" ToRole="AdresatDW" />
+          <Property Name="Temat" Type="String" Nullable="false" />
+          <Property Name="Treść" Type="String" Nullable="false" />
+          <NavigationProperty Name="Załączniki" Relationship="PDBModel.ZałącznikWiadomość" FromRole="Wiadomość" ToRole="Załącznik" />
         </EntityType>
         <Association Name="WiadomośćKontakt">
           <End Type="PDBModel.Wiadomość" Role="Wiadomość" Multiplicity="*" />
@@ -162,7 +175,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Kontakt" Relationship="PDBModel.AdresatDWKontakt" FromRole="AdresatDW" ToRole="Kontakt" />
           <NavigationProperty Name="Wiadomość" Relationship="PDBModel.WiadomośćAdresatDW1" FromRole="AdresatDW" ToRole="Wiadomość" />
-          <Property Name="WiadomośćId" Type="Int32" Nullable="false" />
+          <Property Name="WiadomośćId" Type="Int32" Nullable="false" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
         </EntityType>
         <Association Name="WiadomośćAdresatDW">
           <End Type="PDBModel.Wiadomość" Role="Wiadomość" Multiplicity="1" />
@@ -191,6 +204,43 @@
               <PropertyRef Name="WiadomośćId" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Zadanie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" Nullable="false" />
+          <Property Name="Opis" Type="String" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" />
+          <Property Name="Przypomnienie" Type="PDBModel.TypPrzypomnienia" Nullable="false" />
+          <Property Name="Wyprzedzenie" Type="Int32" Nullable="false" />
+          <Property Name="Godzina" Type="Time" Nullable="false" />
+          <Property Name="IsNotificate" Type="Boolean" Nullable="false" DefaultValue="false" />
+          <NavigationProperty Name="Podmiot" Relationship="PDBModel.ZadanieRowPodmiot" FromRole="ZadanieRow" ToRole="Podmiot" />
+        </EntityType>
+        <Association Name="ZadanieRowPodmiot">
+          <End Type="PDBModel.Zadanie" Role="ZadanieRow" Multiplicity="*" />
+          <End Type="PDBModel.Podmiot" Role="Podmiot" Multiplicity="1" />
+        </Association>
+        <EnumType Name="TypPrzypomnienia">
+          <Member Name="Minuty" />
+          <Member Name="Godziny" />
+          <Member Name="Dni" />
+          <Member Name="Tygodnie" />
+        </EnumType>
+        <EntityType Name="Załącznik">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dane" Type="SByte" Nullable="false" />
+          <Property Name="Nazwa" Type="String" Nullable="false" />
+          <NavigationProperty Name="Wiadomość" Relationship="PDBModel.ZałącznikWiadomość" FromRole="Załącznik" ToRole="Wiadomość" />
+        </EntityType>
+        <Association Name="ZałącznikWiadomość">
+          <End Type="PDBModel.Załącznik" Role="Załącznik" Multiplicity="*" />
+          <End Type="PDBModel.Wiadomość" Role="Wiadomość" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>

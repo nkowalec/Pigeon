@@ -18,6 +18,11 @@
         <EntityTypeShape EntityType="PDBModel.AdresatDW" Width="1.5" PointX="5.25" PointY="0.625" />
         <AssociationConnector Association="PDBModel.WiadomośćAdresatDW" />
         <AssociationConnector Association="PDBModel.WiadomośćAdresatDW1" />
+        <EntityTypeShape EntityType="PDBModel.Załącznik" Width="1.5" PointX="3.625" PointY="3.375" />
+        <AssociationConnector Association="PDBModel.ZałącznikWiadomość" />
+      </Diagram>
+      <Diagram DiagramId="ec0a17bfa5bb465999e499c3b07d9dcc" Name="StrefaZ" >
+        <EntityTypeShape EntityType="PDBModel.Zadanie" Width="1.5" PointX="3" PointY="1.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

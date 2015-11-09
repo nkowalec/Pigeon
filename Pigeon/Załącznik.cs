@@ -12,12 +12,12 @@ namespace Pigeon
     using System;
     using System.Collections.Generic;
     
-    public partial class AdresatDW
+    public partial class Załącznik
     {
         public int Id { get; set; }
-        private int WiadomośćId { get; set; }
+        public sbyte Dane { get; set; }
+        public string Nazwa { get; set; }
     
-        public virtual Kontakt Kontakt { get; set; }
         public virtual Wiadomość Wiadomość { get; set; }
     }
 }

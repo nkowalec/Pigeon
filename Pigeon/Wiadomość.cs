@@ -18,12 +18,17 @@ namespace Pigeon
         public Wiadomość()
         {
             this.AdresaciDW = new HashSet<AdresatDW>();
+            this.Załączniki = new HashSet<Załącznik>();
         }
     
         public int Id { get; set; }
+        public string Temat { get; set; }
+        public string Treść { get; set; }
     
         public virtual Kontakt Adresat { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AdresatDW> AdresaciDW { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Załącznik> Załączniki { get; set; }
     }
 }

@@ -113,10 +113,19 @@
     <Compile Include="TypAdresu.cs">
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
+    <Compile Include="TypPrzypomnienia.cs">
+      <DependentUpon>Module.tt</DependentUpon>
+    </Compile>
     <Compile Include="Wiadomość.cs">
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
     <Compile Include="Wojewodztwo.cs">
+      <DependentUpon>Module.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zadanie.cs">
+      <DependentUpon>Module.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Załącznik.cs">
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">

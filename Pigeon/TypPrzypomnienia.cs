@@ -10,14 +10,12 @@
 namespace Pigeon
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class AdresatDW
+    public enum TypPrzypomnienia : int
     {
-        public int Id { get; set; }
-        private int WiadomośćId { get; set; }
-    
-        public virtual Kontakt Kontakt { get; set; }
-        public virtual Wiadomość Wiadomość { get; set; }
+        Minuty = 0,
+        Godziny = 1,
+        Dni = 2,
+        Tygodnie = 3
     }
 }
