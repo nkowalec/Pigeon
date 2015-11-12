@@ -20,9 +20,11 @@ namespace Pigeon
         public string Ulica { get; set; }
         public string KodPocztowy { get; set; }
         public string NrDomu { get; set; }
-        public Wojewodztwo Wojewodztwo { get; set; }
+        public Nullable<Wojewodztwo> Wojewodztwo { get; set; }
         public string Kraj { get; set; }
-        private int PodmiotId { get; set; }
         public string NrLokalu { get; set; }
+        public int PodmiotId1 { get; set; }
+    
+        public virtual Podmiot Podmiot { get; set; }
     }
 }

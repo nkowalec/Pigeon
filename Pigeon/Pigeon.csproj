@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -78,14 +78,21 @@
     <Compile Include="AdresatDW.cs">
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
+    <Compile Include="Class\Adres.cs" />
     <Compile Include="DefKontaktu.cs">
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\AdresForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\AdresForm.Designer.cs">
+      <DependentUpon>AdresForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Glowne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Glowne.Designer.cs">
+      <DependentUpon>Glowne.cs</DependentUpon>
     </Compile>
     <Compile Include="Kontakt.cs">
       <DependentUpon>Module.tt</DependentUpon>
@@ -108,6 +115,12 @@
     <Compile Include="Podmiot.cs">
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PodmiotForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PodmiotForm.Designer.cs">
+      <DependentUpon>PodmiotForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypAdresu.cs">
@@ -128,6 +141,15 @@
     <Compile Include="Załącznik.cs">
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AdresForm.resx">
+      <DependentUpon>AdresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PodmiotForm.resx">
+      <DependentUpon>PodmiotForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Glowne.resx">
+      <DependentUpon>Glowne.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -164,6 +186,7 @@
       <DependentUpon>Module.edmx</DependentUpon>
       <LastGenOutput>Module.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Module.edmx.sql" />
     <Content Include="Module.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Module.edmx</DependentUpon>

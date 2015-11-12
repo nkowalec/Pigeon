@@ -13,10 +13,10 @@ namespace Pigeon
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PDBEntities : DbContext
+    public partial class Module : DbContext
     {
-        public PDBEntities()
-            : base("name=PDBEntities")
+        public Module()
+            : base("name=Module")
         {
         }
     

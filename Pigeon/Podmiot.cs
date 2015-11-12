@@ -17,17 +17,17 @@ namespace Pigeon
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Podmiot()
         {
-            this.Kontakt = new HashSet<Kontakt>();
-            this.Adres = new HashSet<Adres>();
+            this.Kontakty = new HashSet<Kontakt>();
+            this.Adresy = new HashSet<Adres>();
         }
     
         public int Id { get; set; }
         public string Nazwa { get; set; }
-        public sbyte Obrazek { get; set; }
+        public byte[] Obrazek { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Kontakt> Kontakt { get; set; }
+        public virtual ICollection<Kontakt> Kontakty { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Adres> Adres { get; set; }
+        public virtual ICollection<Adres> Adresy { get; set; }
     }
 }

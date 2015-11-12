@@ -4,14 +4,247 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="PDBModelStoreContainer" />
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="PDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PDBModelStoreContainer">
+    <EntitySet Name="Podmioty" EntityType="PDBModel.Store.Podmioty" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DefKontaktow" EntityType="PDBModel.Store.DefKontaktow" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Kontakty" EntityType="PDBModel.Store.Kontakty" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Adresy" EntityType="PDBModel.Store.Adresy" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Wiadomości" EntityType="PDBModel.Store.Wiadomości" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AdresaciDW" EntityType="PDBModel.Store.AdresaciDW" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Zadania" EntityType="PDBModel.Store.Zadania" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Załączniki" EntityType="PDBModel.Store.Załączniki" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PodmiotKontakt" Association="PDBModel.Store.PodmiotKontakt">
+      <End Role="Podmiot" EntitySet="Podmioty" />
+      <End Role="Kontakt" EntitySet="Kontakty" />
+    </AssociationSet>
+    <AssociationSet Name="KontaktDefKontaktu" Association="PDBModel.Store.KontaktDefKontaktu">
+      <End Role="Kontakt" EntitySet="Kontakty" />
+      <End Role="DefKontaktu" EntitySet="DefKontaktow" />
+    </AssociationSet>
+    <AssociationSet Name="WiadomośćKontakt" Association="PDBModel.Store.WiadomośćKontakt">
+      <End Role="Wiadomość" EntitySet="Wiadomości" />
+      <End Role="Kontakt" EntitySet="Kontakty" />
+    </AssociationSet>
+    <AssociationSet Name="WiadomośćAdresatDW" Association="PDBModel.Store.WiadomośćAdresatDW">
+      <End Role="Wiadomość" EntitySet="Wiadomości" />
+      <End Role="AdresatDW" EntitySet="AdresaciDW" />
+    </AssociationSet>
+    <AssociationSet Name="AdresatDWKontakt" Association="PDBModel.Store.AdresatDWKontakt">
+      <End Role="AdresatDW" EntitySet="AdresaciDW" />
+      <End Role="Kontakt" EntitySet="Kontakty" />
+    </AssociationSet>
+    <AssociationSet Name="WiadomośćAdresatDW1" Association="PDBModel.Store.WiadomośćAdresatDW1">
+      <End Role="Wiadomość" EntitySet="Wiadomości" />
+      <End Role="AdresatDW" EntitySet="AdresaciDW" />
+    </AssociationSet>
+    <AssociationSet Name="ZadanieRowPodmiot" Association="PDBModel.Store.ZadanieRowPodmiot">
+      <End Role="ZadanieRow" EntitySet="Zadania" />
+      <End Role="Podmiot" EntitySet="Podmioty" />
+    </AssociationSet>
+    <AssociationSet Name="ZałącznikWiadomość" Association="PDBModel.Store.ZałącznikWiadomość">
+      <End Role="Załącznik" EntitySet="Załączniki" />
+      <End Role="Wiadomość" EntitySet="Wiadomości" />
+    </AssociationSet>
+    <AssociationSet Name="PodmiotAdres" Association="PDBModel.Store.PodmiotAdres">
+      <End Role="Podmiot" EntitySet="Podmioty" />
+      <End Role="Adres" EntitySet="Adresy" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Podmioty">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Obrazek" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="DefKontaktow">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Symbol" Type="nvarchar(max)" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kontakty">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Wartość" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PodmiotId" Type="int" Nullable="false" />
+    <Property Name="DefKontaktu_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Adresy">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Typ" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Typ" Type="int" Nullable="false" />
+    <Property Name="Miasto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ulica" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="KodPocztowy" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="NrDomu" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Wojewodztwo" Type="int" Nullable="true" />
+    <Property Name="Kraj" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="NrLokalu" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PodmiotId1" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Wiadomości">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Temat" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Treść" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adresat_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AdresaciDW">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WiadomośćId" Type="int" Nullable="false" />
+    <Property Name="Kontakt_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Zadania">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Opis" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="Przypomnienie" Type="int" Nullable="false" />
+    <Property Name="Wyprzedzenie" Type="int" Nullable="false" />
+    <Property Name="Godzina" Type="time" Nullable="false" />
+    <Property Name="IsNotificate" Type="bit" Nullable="false" DefaultValue="false" />
+    <Property Name="Podmiot_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Załączniki">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dane" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Wiadomość_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PodmiotKontakt">
+    <End Role="Podmiot" Type="PDBModel.Store.Podmioty" Multiplicity="1" />
+    <End Role="Kontakt" Type="PDBModel.Store.Kontakty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Podmiot">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Kontakt">
+        <PropertyRef Name="PodmiotId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KontaktDefKontaktu">
+    <End Role="Kontakt" Type="PDBModel.Store.Kontakty" Multiplicity="*" />
+    <End Role="DefKontaktu" Type="PDBModel.Store.DefKontaktow" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="DefKontaktu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Kontakt">
+        <PropertyRef Name="DefKontaktu_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WiadomośćKontakt">
+    <End Role="Wiadomość" Type="PDBModel.Store.Wiadomości" Multiplicity="*" />
+    <End Role="Kontakt" Type="PDBModel.Store.Kontakty" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Kontakt">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Wiadomość">
+        <PropertyRef Name="Adresat_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WiadomośćAdresatDW">
+    <End Role="Wiadomość" Type="PDBModel.Store.Wiadomości" Multiplicity="1" />
+    <End Role="AdresatDW" Type="PDBModel.Store.AdresaciDW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wiadomość">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdresatDW">
+        <PropertyRef Name="WiadomośćId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AdresatDWKontakt">
+    <End Role="AdresatDW" Type="PDBModel.Store.AdresaciDW" Multiplicity="*" />
+    <End Role="Kontakt" Type="PDBModel.Store.Kontakty" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Kontakt">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdresatDW">
+        <PropertyRef Name="Kontakt_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="WiadomośćAdresatDW1">
+    <End Role="Wiadomość" Type="PDBModel.Store.Wiadomości" Multiplicity="1" />
+    <End Role="AdresatDW" Type="PDBModel.Store.AdresaciDW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wiadomość">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AdresatDW">
+        <PropertyRef Name="WiadomośćId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ZadanieRowPodmiot">
+    <End Role="ZadanieRow" Type="PDBModel.Store.Zadania" Multiplicity="*" />
+    <End Role="Podmiot" Type="PDBModel.Store.Podmioty" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Podmiot">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ZadanieRow">
+        <PropertyRef Name="Podmiot_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ZałącznikWiadomość">
+    <End Role="Załącznik" Type="PDBModel.Store.Załączniki" Multiplicity="*" />
+    <End Role="Wiadomość" Type="PDBModel.Store.Wiadomości" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Wiadomość">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Załącznik">
+        <PropertyRef Name="Wiadomość_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PodmiotAdres">
+    <End Role="Podmiot" Type="PDBModel.Store.Podmioty" Multiplicity="1" />
+    <End Role="Adres" Type="PDBModel.Store.Adresy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Podmiot">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Adres">
+        <PropertyRef Name="PodmiotId1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="PDBEntities" annotation:LazyLoadingEnabled="true" >
+        <EntityContainer Name="Module" annotation:LazyLoadingEnabled="true" >
           <EntitySet Name="Podmioty" EntityType="PDBModel.Podmiot" />
           <EntitySet Name="DefKontaktow" EntityType="PDBModel.DefKontaktu" />
           <EntitySet Name="Kontakty" EntityType="PDBModel.Kontakt" />
@@ -24,10 +257,6 @@
             <End Role="DefKontaktu" EntitySet="DefKontaktow" />
           </AssociationSet>
           <EntitySet Name="Adresy" EntityType="PDBModel.Adres" />
-          <AssociationSet Name="PodmiotAdres" Association="PDBModel.PodmiotAdres">
-            <End Role="Podmiot" EntitySet="Podmioty" />
-            <End Role="Adres" EntitySet="Adresy" />
-          </AssociationSet>
           <EntitySet Name="Wiadomości" EntityType="PDBModel.Wiadomość" />
           <AssociationSet Name="WiadomośćKontakt" Association="PDBModel.WiadomośćKontakt">
             <End Role="Wiadomość" EntitySet="Wiadomości" />
@@ -56,6 +285,10 @@
             <End Role="Załącznik" EntitySet="Załączniki" />
             <End Role="Wiadomość" EntitySet="Wiadomości" />
           </AssociationSet>
+          <AssociationSet Name="PodmiotAdres" Association="PDBModel.PodmiotAdres">
+            <End Role="Podmiot" EntitySet="Podmioty" />
+            <End Role="Adres" EntitySet="Adresy" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Podmiot">
           <Key>
@@ -63,14 +296,13 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" Nullable="false" />
-          <Property Name="Obrazek" Type="SByte" Nullable="false" />
-          <NavigationProperty Name="Kontakt" Relationship="PDBModel.PodmiotKontakt" FromRole="Podmiot" ToRole="Kontakt" />
-          <NavigationProperty Name="Adres" Relationship="PDBModel.PodmiotAdres" FromRole="Podmiot" ToRole="Adres" />
+          <Property Name="Obrazek" Type="Binary" Nullable="true" />
+          <NavigationProperty Name="Kontakty" Relationship="PDBModel.PodmiotKontakt" FromRole="Podmiot" ToRole="Kontakt" />
+          <NavigationProperty Name="Adresy" Relationship="PDBModel.PodmiotAdres" FromRole="Podmiot" ToRole="Adres" />
         </EntityType>
         <EntityType Name="DefKontaktu">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Symbol" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Symbol" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
@@ -110,26 +342,15 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Typ" Type="PDBModel.TypAdresu" Nullable="false" />
           <Property Name="Miasto" Type="String" Nullable="false" />
-          <Property Name="Ulica" Type="String" Nullable="false" />
-          <Property Name="KodPocztowy" Type="String" Nullable="false" />
-          <Property Name="NrDomu" Type="String" Nullable="false" />
-          <Property Name="Wojewodztwo" Type="PDBModel.Wojewodztwo" Nullable="false" />
-          <Property Name="Kraj" Type="String" Nullable="false" />
-          <Property Name="PodmiotId" Type="Int32" Nullable="false" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
-          <Property Name="NrLokalu" Type="String" Nullable="false" />
+          <Property Name="Ulica" Type="String" Nullable="true" />
+          <Property Name="KodPocztowy" Type="String" Nullable="true" />
+          <Property Name="NrDomu" Type="String" Nullable="true" />
+          <Property Name="Wojewodztwo" Type="PDBModel.Wojewodztwo" Nullable="true" />
+          <Property Name="Kraj" Type="String" Nullable="true" />
+          <Property Name="NrLokalu" Type="String" Nullable="true" />
+          <NavigationProperty Name="Podmiot" Relationship="PDBModel.PodmiotAdres" FromRole="Adres" ToRole="Podmiot" />
+          <Property Name="PodmiotId1" Type="Int32" Nullable="false" />
         </EntityType>
-        <Association Name="PodmiotAdres">
-          <End Type="PDBModel.Podmiot" Role="Podmiot" Multiplicity="1" />
-          <End Type="PDBModel.Adres" Role="Adres" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Podmiot">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Adres">
-              <PropertyRef Name="PodmiotId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EnumType Name="TypAdresu">
           <Member Name="Zamieszkania" />
           <Member Name="Zameldowania" />
@@ -234,7 +455,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Dane" Type="SByte" Nullable="false" />
+          <Property Name="Dane" Type="Binary" Nullable="false" />
           <Property Name="Nazwa" Type="String" Nullable="false" />
           <NavigationProperty Name="Wiadomość" Relationship="PDBModel.ZałącznikWiadomość" FromRole="Załącznik" ToRole="Wiadomość" />
         </EntityType>
@@ -242,14 +463,149 @@
           <End Type="PDBModel.Załącznik" Role="Załącznik" Multiplicity="*" />
           <End Type="PDBModel.Wiadomość" Role="Wiadomość" Multiplicity="1" />
         </Association>
+        <Association Name="PodmiotAdres">
+          <End Type="PDBModel.Podmiot" Role="Podmiot" Multiplicity="1" />
+          <End Type="PDBModel.Adres" Role="Adres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Podmiot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Adres">
+              <PropertyRef Name="PodmiotId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PDBModelStoreContainer" CdmEntityContainer="PDBEntities" />
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PDBModelStoreContainer" CdmEntityContainer="Module">
+    <EntitySetMapping Name="Podmioty">
+      <EntityTypeMapping TypeName="IsTypeOf(PDBModel.Podmiot)">
+        <MappingFragment StoreEntitySet="Podmioty">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Obrazek" ColumnName="Obrazek" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DefKontaktow">
+      <EntityTypeMapping TypeName="IsTypeOf(PDBModel.DefKontaktu)">
+        <MappingFragment StoreEntitySet="DefKontaktow">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kontakty">
+      <EntityTypeMapping TypeName="IsTypeOf(PDBModel.Kontakt)">
+        <MappingFragment StoreEntitySet="Kontakty">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Wartość" ColumnName="Wartość" />
+          <ScalarProperty Name="PodmiotId" ColumnName="PodmiotId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Adresy">
+      <EntityTypeMapping TypeName="IsTypeOf(PDBModel.Adres)">
+        <MappingFragment StoreEntitySet="Adresy">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Typ" ColumnName="Typ" />
+          <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+          <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+          <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+          <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />
+          <ScalarProperty Name="Wojewodztwo" ColumnName="Wojewodztwo" />
+          <ScalarProperty Name="Kraj" ColumnName="Kraj" />
+          <ScalarProperty Name="NrLokalu" ColumnName="NrLokalu" />
+          <ScalarProperty Name="PodmiotId1" ColumnName="PodmiotId1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wiadomości">
+      <EntityTypeMapping TypeName="IsTypeOf(PDBModel.Wiadomość)">
+        <MappingFragment StoreEntitySet="Wiadomości">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Temat" ColumnName="Temat" />
+          <ScalarProperty Name="Treść" ColumnName="Treść" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdresaciDW">
+      <EntityTypeMapping TypeName="IsTypeOf(PDBModel.AdresatDW)">
+        <MappingFragment StoreEntitySet="AdresaciDW">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="WiadomośćId" ColumnName="WiadomośćId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zadania">
+      <EntityTypeMapping TypeName="IsTypeOf(PDBModel.Zadanie)">
+        <MappingFragment StoreEntitySet="Zadania">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Przypomnienie" ColumnName="Przypomnienie" />
+          <ScalarProperty Name="Wyprzedzenie" ColumnName="Wyprzedzenie" />
+          <ScalarProperty Name="Godzina" ColumnName="Godzina" />
+          <ScalarProperty Name="IsNotificate" ColumnName="IsNotificate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Załączniki">
+      <EntityTypeMapping TypeName="IsTypeOf(PDBModel.Załącznik)">
+        <MappingFragment StoreEntitySet="Załączniki">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Dane" ColumnName="Dane" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="KontaktDefKontaktu" TypeName="PDBModel.KontaktDefKontaktu" StoreEntitySet="Kontakty">
+      <EndProperty Name="DefKontaktu">
+        <ScalarProperty Name="Id" ColumnName="DefKontaktu_Id" />
+      </EndProperty>
+      <EndProperty Name="Kontakt">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="WiadomośćKontakt" TypeName="PDBModel.WiadomośćKontakt" StoreEntitySet="Wiadomości">
+      <EndProperty Name="Kontakt">
+        <ScalarProperty Name="Id" ColumnName="Adresat_Id" />
+      </EndProperty>
+      <EndProperty Name="Wiadomość">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AdresatDWKontakt" TypeName="PDBModel.AdresatDWKontakt" StoreEntitySet="AdresaciDW">
+      <EndProperty Name="Kontakt">
+        <ScalarProperty Name="Id" ColumnName="Kontakt_Id" />
+      </EndProperty>
+      <EndProperty Name="AdresatDW">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ZadanieRowPodmiot" TypeName="PDBModel.ZadanieRowPodmiot" StoreEntitySet="Zadania">
+      <EndProperty Name="Podmiot">
+        <ScalarProperty Name="Id" ColumnName="Podmiot_Id" />
+      </EndProperty>
+      <EndProperty Name="ZadanieRow">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ZałącznikWiadomość" TypeName="PDBModel.ZałącznikWiadomość" StoreEntitySet="Załączniki">
+      <EndProperty Name="Wiadomość">
+        <ScalarProperty Name="Id" ColumnName="Wiadomość_Id" />
+      </EndProperty>
+      <EndProperty Name="Załącznik">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -263,7 +619,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

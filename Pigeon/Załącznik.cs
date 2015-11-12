@@ -15,7 +15,7 @@ namespace Pigeon
     public partial class Załącznik
     {
         public int Id { get; set; }
-        public sbyte Dane { get; set; }
+        public byte[] Dane { get; set; }
         public string Nazwa { get; set; }
     
         public virtual Wiadomość Wiadomość { get; set; }
