@@ -10,15 +10,14 @@
 namespace Pigeon
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Kontakt
+    public enum TypKontaktu : int
     {
-        public int Id { get; set; }
-        public string Wartość { get; set; }
-        private int PodmiotId { get; set; }
-        public TypKontaktu Nazwa { get; set; }
-    
-        public virtual Podmiot Podmiot { get; set; }
+        Tel_Stacjonarny_Prywatny = 0,
+        Tel_Stasjonarny_Służbowy = 1,
+        Tel_Komórkowy_Prywatny = 2,
+        Tel_Komórkowy_Służbowy = 3,
+        Email_Prywatny = 4,
+        Email_Służbowy = 5
     }
 }

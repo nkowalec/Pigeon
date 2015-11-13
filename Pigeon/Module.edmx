@@ -61,7 +61,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Wartość" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PodmiotId" Type="int" Nullable="false" />
-    <Property Name="Nazwa" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nazwa" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Adresy">
     <Key>
@@ -278,7 +278,7 @@
           <Property Name="Wartość" Type="String" Nullable="false" />
           <NavigationProperty Name="Podmiot" Relationship="PDBModel.PodmiotKontakt" FromRole="Kontakt" ToRole="Podmiot" />
           <Property Name="PodmiotId" Type="Int32" Nullable="false" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
-          <Property Name="Nazwa" Type="String" Nullable="false" />
+          <Property Name="Nazwa" Type="PDBModel.TypKontaktu" Nullable="false" />
         </EntityType>
         <Association Name="PodmiotKontakt">
           <End Type="PDBModel.Podmiot" Role="Podmiot" Multiplicity="1" />
@@ -433,6 +433,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EnumType Name="TypKontaktu">
+          <Member Name="Tel_Stacjonarny_Prywatny" />
+          <Member Name="Tel_Stasjonarny_Służbowy" />
+          <Member Name="Tel_Komórkowy_Prywatny" />
+          <Member Name="Tel_Komórkowy_Służbowy" />
+          <Member Name="Email_Prywatny" />
+          <Member Name="Email_Służbowy" />
+        </EnumType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

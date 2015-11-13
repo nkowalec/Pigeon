@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/13/2015 15:33:00
+-- Date Created: 11/13/2015 17:37:49
 -- Generated from EDMX file: C:\Projekty\Pigeon\Pigeon\Module.edmx
 -- --------------------------------------------------
 
@@ -85,7 +85,7 @@ CREATE TABLE [dbo].[Kontakty] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Wartość] nvarchar(max)  NOT NULL,
     [PodmiotId] int  NOT NULL,
-    [Nazwa] nvarchar(max)  NOT NULL
+    [Nazwa] int  NOT NULL
 );
 GO
 

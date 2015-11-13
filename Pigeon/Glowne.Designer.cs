@@ -43,12 +43,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(682, 37);
+            this.panel1.Size = new System.Drawing.Size(682, 48);
             this.panel1.TabIndex = 0;
             // 
             // AddPodmiot
             // 
-            this.AddPodmiot.Location = new System.Drawing.Point(0, 0);
+            this.AddPodmiot.Location = new System.Drawing.Point(4, 3);
             this.AddPodmiot.Name = "AddPodmiot";
             this.AddPodmiot.Size = new System.Drawing.Size(134, 37);
             this.AddPodmiot.TabIndex = 0;
@@ -76,6 +76,7 @@
             this.PodmiotyGrid.Size = new System.Drawing.Size(691, 370);
             this.PodmiotyGrid.TabIndex = 1;
             this.PodmiotyGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PodmiotyGrid_CellDoubleClick);
+            this.PodmiotyGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PodmiotyGrid_MouseClick);
             // 
             // ID
             // 

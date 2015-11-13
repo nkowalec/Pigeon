@@ -130,6 +130,9 @@
     <Compile Include="TypAdresu.cs">
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
+    <Compile Include="TypKontaktu.cs">
+      <DependentUpon>Module.tt</DependentUpon>
+    </Compile>
     <Compile Include="TypPrzypomnienia.cs">
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
