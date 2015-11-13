@@ -7,7 +7,6 @@
     <Schema Namespace="PDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="PDBModelStoreContainer">
     <EntitySet Name="Podmioty" EntityType="PDBModel.Store.Podmioty" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DefKontaktow" EntityType="PDBModel.Store.DefKontaktow" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Kontakty" EntityType="PDBModel.Store.Kontakty" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Adresy" EntityType="PDBModel.Store.Adresy" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Wiadomości" EntityType="PDBModel.Store.Wiadomości" store:Type="Tables" Schema="dbo" />
@@ -17,10 +16,6 @@
     <AssociationSet Name="PodmiotKontakt" Association="PDBModel.Store.PodmiotKontakt">
       <End Role="Podmiot" EntitySet="Podmioty" />
       <End Role="Kontakt" EntitySet="Kontakty" />
-    </AssociationSet>
-    <AssociationSet Name="KontaktDefKontaktu" Association="PDBModel.Store.KontaktDefKontaktu">
-      <End Role="Kontakt" EntitySet="Kontakty" />
-      <End Role="DefKontaktu" EntitySet="DefKontaktow" />
     </AssociationSet>
     <AssociationSet Name="WiadomośćKontakt" Association="PDBModel.Store.WiadomośćKontakt">
       <End Role="Wiadomość" EntitySet="Wiadomości" />
@@ -59,14 +54,6 @@
     <Property Name="Nazwa" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Obrazek" Type="varbinary(max)" Nullable="true" />
   </EntityType>
-  <EntityType Name="DefKontaktow">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Symbol" Type="nvarchar(max)" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nazwa" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
   <EntityType Name="Kontakty">
     <Key>
       <PropertyRef Name="Id" />
@@ -74,7 +61,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Wartość" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PodmiotId" Type="int" Nullable="false" />
-    <Property Name="DefKontaktu_Id" Type="int" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Adresy">
     <Key>
@@ -141,18 +128,6 @@
       </Principal>
       <Dependent Role="Kontakt">
         <PropertyRef Name="PodmiotId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="KontaktDefKontaktu">
-    <End Role="Kontakt" Type="PDBModel.Store.Kontakty" Multiplicity="*" />
-    <End Role="DefKontaktu" Type="PDBModel.Store.DefKontaktow" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="DefKontaktu">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Kontakt">
-        <PropertyRef Name="DefKontaktu_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -246,15 +221,10 @@
       <Schema Namespace="PDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="Module" annotation:LazyLoadingEnabled="true" >
           <EntitySet Name="Podmioty" EntityType="PDBModel.Podmiot" />
-          <EntitySet Name="DefKontaktow" EntityType="PDBModel.DefKontaktu" />
           <EntitySet Name="Kontakty" EntityType="PDBModel.Kontakt" />
           <AssociationSet Name="PodmiotKontakt" Association="PDBModel.PodmiotKontakt">
             <End Role="Podmiot" EntitySet="Podmioty" />
             <End Role="Kontakt" EntitySet="Kontakty" />
-          </AssociationSet>
-          <AssociationSet Name="KontaktDefKontaktu" Association="PDBModel.KontaktDefKontaktu">
-            <End Role="Kontakt" EntitySet="Kontakty" />
-            <End Role="DefKontaktu" EntitySet="DefKontaktow" />
           </AssociationSet>
           <EntitySet Name="Adresy" EntityType="PDBModel.Adres" />
           <EntitySet Name="Wiadomości" EntityType="PDBModel.Wiadomość" />
@@ -300,14 +270,6 @@
           <NavigationProperty Name="Kontakty" Relationship="PDBModel.PodmiotKontakt" FromRole="Podmiot" ToRole="Kontakt" />
           <NavigationProperty Name="Adresy" Relationship="PDBModel.PodmiotAdres" FromRole="Podmiot" ToRole="Adres" />
         </EntityType>
-        <EntityType Name="DefKontaktu">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Symbol" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nazwa" Type="String" Nullable="false" />
-        </EntityType>
         <EntityType Name="Kontakt">
           <Key>
             <PropertyRef Name="Id" />
@@ -316,7 +278,7 @@
           <Property Name="Wartość" Type="String" Nullable="false" />
           <NavigationProperty Name="Podmiot" Relationship="PDBModel.PodmiotKontakt" FromRole="Kontakt" ToRole="Podmiot" />
           <Property Name="PodmiotId" Type="Int32" Nullable="false" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
-          <NavigationProperty Name="DefKontaktu" Relationship="PDBModel.KontaktDefKontaktu" FromRole="Kontakt" ToRole="DefKontaktu" />
+          <Property Name="Nazwa" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="PodmiotKontakt">
           <End Type="PDBModel.Podmiot" Role="Podmiot" Multiplicity="1" />
@@ -329,10 +291,6 @@
               <PropertyRef Name="PodmiotId" />
             </Dependent>
           </ReferentialConstraint>
-        </Association>
-        <Association Name="KontaktDefKontaktu">
-          <End Type="PDBModel.Kontakt" Role="Kontakt" Multiplicity="*" />
-          <End Type="PDBModel.DefKontaktu" Role="DefKontaktu" Multiplicity="1" />
         </Association>
         <EntityType Name="Adres">
           <Key>
@@ -490,21 +448,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DefKontaktow">
-      <EntityTypeMapping TypeName="IsTypeOf(PDBModel.DefKontaktu)">
-        <MappingFragment StoreEntitySet="DefKontaktow">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
-          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Kontakty">
       <EntityTypeMapping TypeName="IsTypeOf(PDBModel.Kontakt)">
         <MappingFragment StoreEntitySet="Kontakty">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Wartość" ColumnName="Wartość" />
           <ScalarProperty Name="PodmiotId" ColumnName="PodmiotId" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -564,14 +514,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="KontaktDefKontaktu" TypeName="PDBModel.KontaktDefKontaktu" StoreEntitySet="Kontakty">
-      <EndProperty Name="DefKontaktu">
-        <ScalarProperty Name="Id" ColumnName="DefKontaktu_Id" />
-      </EndProperty>
-      <EndProperty Name="Kontakt">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="WiadomośćKontakt" TypeName="PDBModel.WiadomośćKontakt" StoreEntitySet="Wiadomości">
       <EndProperty Name="Kontakt">
         <ScalarProperty Name="Id" ColumnName="Adresat_Id" />

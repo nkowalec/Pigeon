@@ -6,10 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="340fc1f12bbb4aa8addce35b4d21980c" Name="StrefaA" >
         <EntityTypeShape EntityType="PDBModel.Podmiot" PointX="0.75" PointY="5.375" Width="1.5" />
-        <EntityTypeShape EntityType="PDBModel.DefKontaktu" PointX="5.25" PointY="5.625" Width="1.5" />
         <EntityTypeShape EntityType="PDBModel.Kontakt" PointX="3" PointY="5.375" Width="1.5" />
         <AssociationConnector Association="PDBModel.PodmiotKontakt" />
-        <AssociationConnector Association="PDBModel.KontaktDefKontaktu" />
         <EntityTypeShape EntityType="PDBModel.Adres" PointX="0.75" PointY="7.875" Width="1.5" />
         <AssociationConnector Association="PDBModel.PodmiotAdres" />
       </Diagram>

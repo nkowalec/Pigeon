@@ -17,8 +17,8 @@ namespace Pigeon
         public int Id { get; set; }
         public string Wartość { get; set; }
         private int PodmiotId { get; set; }
+        public string Nazwa { get; set; }
     
         public virtual Podmiot Podmiot { get; set; }
-        public virtual DefKontaktu DefKontaktu { get; set; }
     }
 }

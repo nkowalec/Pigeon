@@ -31,6 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.AddPodmiot = new System.Windows.Forms.Button();
             this.PodmiotyGrid = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PodmiotyGrid)).BeginInit();
             this.SuspendLayout();
@@ -41,7 +43,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(691, 37);
+            this.panel1.Size = new System.Drawing.Size(682, 37);
             this.panel1.TabIndex = 0;
             // 
             // AddPodmiot
@@ -58,8 +60,14 @@
             // 
             this.PodmiotyGrid.AllowUserToAddRows = false;
             this.PodmiotyGrid.AllowUserToDeleteRows = false;
+            this.PodmiotyGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PodmiotyGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PodmiotyGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PodmiotyGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PodmiotyGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Nazwa});
             this.PodmiotyGrid.Location = new System.Drawing.Point(0, 43);
             this.PodmiotyGrid.MultiSelect = false;
             this.PodmiotyGrid.Name = "PodmiotyGrid";
@@ -69,11 +77,28 @@
             this.PodmiotyGrid.TabIndex = 1;
             this.PodmiotyGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PodmiotyGrid_CellDoubleClick);
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "Id";
+            this.ID.FillWeight = 15.22843F;
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 10;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Nazwa
+            // 
+            this.Nazwa.DataPropertyName = "Nazwa";
+            this.Nazwa.FillWeight = 184.7716F;
+            this.Nazwa.HeaderText = "Nazwa";
+            this.Nazwa.Name = "Nazwa";
+            this.Nazwa.ReadOnly = true;
+            // 
             // Glowne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(691, 413);
+            this.ClientSize = new System.Drawing.Size(682, 406);
             this.Controls.Add(this.PodmiotyGrid);
             this.Controls.Add(this.panel1);
             this.Name = "Glowne";
@@ -88,8 +113,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView PodmiotyGrid;
         private System.Windows.Forms.Button AddPodmiot;
+        private System.Windows.Forms.DataGridView PodmiotyGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nazwa;
     }
 }
 

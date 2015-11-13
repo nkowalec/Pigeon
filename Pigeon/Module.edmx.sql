@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/12/2015 21:52:26
+-- Date Created: 11/13/2015 15:33:00
 -- Generated from EDMX file: C:\Projekty\Pigeon\Pigeon\Module.edmx
 -- --------------------------------------------------
 
@@ -19,9 +19,6 @@ GO
 
 IF OBJECT_ID(N'[dbo].[FK_PodmiotKontakt]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Kontakty] DROP CONSTRAINT [FK_PodmiotKontakt];
-GO
-IF OBJECT_ID(N'[dbo].[FK_KontaktDefKontaktu]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Kontakty] DROP CONSTRAINT [FK_KontaktDefKontaktu];
 GO
 IF OBJECT_ID(N'[dbo].[FK_WiadomośćKontakt]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Wiadomości] DROP CONSTRAINT [FK_WiadomośćKontakt];
@@ -51,9 +48,6 @@ GO
 
 IF OBJECT_ID(N'[dbo].[Podmioty]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Podmioty];
-GO
-IF OBJECT_ID(N'[dbo].[DefKontaktow]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DefKontaktow];
 GO
 IF OBJECT_ID(N'[dbo].[Kontakty]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Kontakty];
@@ -86,20 +80,12 @@ CREATE TABLE [dbo].[Podmioty] (
 );
 GO
 
--- Creating table 'DefKontaktow'
-CREATE TABLE [dbo].[DefKontaktow] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [Symbol] nvarchar(max)  NOT NULL,
-    [Nazwa] nvarchar(max)  NOT NULL
-);
-GO
-
 -- Creating table 'Kontakty'
 CREATE TABLE [dbo].[Kontakty] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Wartość] nvarchar(max)  NOT NULL,
     [PodmiotId] int  NOT NULL,
-    [DefKontaktu_Id] int  NOT NULL
+    [Nazwa] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -168,12 +154,6 @@ ADD CONSTRAINT [PK_Podmioty]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'DefKontaktow'
-ALTER TABLE [dbo].[DefKontaktow]
-ADD CONSTRAINT [PK_DefKontaktow]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
 -- Creating primary key on [Id] in table 'Kontakty'
 ALTER TABLE [dbo].[Kontakty]
 ADD CONSTRAINT [PK_Kontakty]
@@ -227,21 +207,6 @@ GO
 CREATE INDEX [IX_FK_PodmiotKontakt]
 ON [dbo].[Kontakty]
     ([PodmiotId]);
-GO
-
--- Creating foreign key on [DefKontaktu_Id] in table 'Kontakty'
-ALTER TABLE [dbo].[Kontakty]
-ADD CONSTRAINT [FK_KontaktDefKontaktu]
-    FOREIGN KEY ([DefKontaktu_Id])
-    REFERENCES [dbo].[DefKontaktow]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_KontaktDefKontaktu'
-CREATE INDEX [IX_FK_KontaktDefKontaktu]
-ON [dbo].[Kontakty]
-    ([DefKontaktu_Id]);
 GO
 
 -- Creating foreign key on [Adresat_Id] in table 'Wiadomości'

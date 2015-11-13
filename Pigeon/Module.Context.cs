@@ -26,7 +26,6 @@ namespace Pigeon
         }
     
         public virtual DbSet<Podmiot> Podmioty { get; set; }
-        public virtual DbSet<DefKontaktu> DefKontaktow { get; set; }
         public virtual DbSet<Kontakt> Kontakty { get; set; }
         public virtual DbSet<Adres> Adresy { get; set; }
         public virtual DbSet<Wiadomość> Wiadomości { get; set; }
