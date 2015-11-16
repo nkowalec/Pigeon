@@ -28,5 +28,11 @@ namespace Pigeon.Forms
             PodmiotyGlowne form = new PodmiotyGlowne();
             form.Show();
         }
+
+        private void Opcje_Click(object sender, EventArgs e)
+        {
+            ConfigForm form = new ConfigForm();
+            form.ShowDialog();
+        }
     }
 }

@@ -122,6 +122,8 @@
             // 
             // emailText
             // 
+            this.emailText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.emailText.Location = new System.Drawing.Point(105, 35);
             this.emailText.Name = "emailText";
             this.emailText.Size = new System.Drawing.Size(233, 20);
@@ -129,6 +131,8 @@
             // 
             // loginText
             // 
+            this.loginText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.loginText.Location = new System.Drawing.Point(105, 66);
             this.loginText.Name = "loginText";
             this.loginText.Size = new System.Drawing.Size(233, 20);
@@ -136,6 +140,8 @@
             // 
             // passText
             // 
+            this.passText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.passText.Location = new System.Drawing.Point(105, 99);
             this.passText.Name = "passText";
             this.passText.Size = new System.Drawing.Size(233, 20);
@@ -143,6 +149,8 @@
             // 
             // smtpAdresText
             // 
+            this.smtpAdresText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.smtpAdresText.Location = new System.Drawing.Point(105, 131);
             this.smtpAdresText.Name = "smtpAdresText";
             this.smtpAdresText.Size = new System.Drawing.Size(233, 20);
@@ -150,6 +158,8 @@
             // 
             // smtpPortText
             // 
+            this.smtpPortText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.smtpPortText.Location = new System.Drawing.Point(105, 165);
             this.smtpPortText.Name = "smtpPortText";
             this.smtpPortText.Size = new System.Drawing.Size(233, 20);

@@ -187,6 +187,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="Module.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -228,6 +229,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>PDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\person.png" />
+    <None Include="Resources\Envelope.png" />
+    <None Include="Resources\task.png" />
+    <None Include="Resources\configuration_edit.png" />
+    <None Include="Resources\Close1.png" />
+    <None Include="Resources\Close.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

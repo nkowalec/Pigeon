@@ -34,6 +34,8 @@ namespace Pigeon.Forms
         {
             CollectForm();
             Config.Update();
+
+            this.Close();
         }
 
         private void CollectForm()
