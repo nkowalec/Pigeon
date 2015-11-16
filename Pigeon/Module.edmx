@@ -281,8 +281,11 @@
           <Property Name="Nazwa" Type="PDBModel.TypKontaktu" Nullable="false" />
         </EntityType>
         <Association Name="PodmiotKontakt">
-          <End Type="PDBModel.Podmiot" Role="Podmiot" Multiplicity="1" />
-          <End Type="PDBModel.Kontakt" Role="Kontakt" Multiplicity="*" />
+          <End Type="PDBModel.Podmiot" Role="Podmiot" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PDBModel.Kontakt" Role="Kontakt" Multiplicity="*" >
+          </End>
           <ReferentialConstraint>
             <Principal Role="Podmiot">
               <PropertyRef Name="Id" />
@@ -422,8 +425,11 @@
           <End Type="PDBModel.Wiadomość" Role="Wiadomość" Multiplicity="1" />
         </Association>
         <Association Name="PodmiotAdres">
-          <End Type="PDBModel.Podmiot" Role="Podmiot" Multiplicity="1" />
-          <End Type="PDBModel.Adres" Role="Adres" Multiplicity="*" />
+          <End Type="PDBModel.Podmiot" Role="Podmiot" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PDBModel.Adres" Role="Adres" Multiplicity="*" >
+          </End>
           <ReferentialConstraint>
             <Principal Role="Podmiot">
               <PropertyRef Name="Id" />

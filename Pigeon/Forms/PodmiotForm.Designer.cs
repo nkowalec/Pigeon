@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.PodmiotTabs = new System.Windows.Forms.TabControl();
             this.OgólneTab = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,18 +48,26 @@
             this.label1 = new System.Windows.Forms.Label();
             this.KontaktyTab = new System.Windows.Forms.TabPage();
             this.KontaktyGrid = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.AddKontakt = new System.Windows.Forms.Button();
-            this.AddAdres = new System.Windows.Forms.Button();
             this.ID_kontakt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Wartosc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.AddKontakt = new System.Windows.Forms.Button();
+            this.AddAdres = new System.Windows.Forms.Button();
+            this.CxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.formularzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CxKontaktMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.formularzToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuńToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.PodmiotTabs.SuspendLayout();
             this.OgólneTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdresyGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.KontaktyTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KontaktyGrid)).BeginInit();
+            this.CxMenu.SuspendLayout();
+            this.CxKontaktMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // PodmiotTabs
@@ -125,6 +134,7 @@
             this.AdresyGrid.Size = new System.Drawing.Size(365, 163);
             this.AdresyGrid.TabIndex = 6;
             this.AdresyGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AdresyGrid_CellDoubleClick);
+            this.AdresyGrid.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AdresyGrid_MouseDown);
             // 
             // ID
             // 
@@ -263,6 +273,31 @@
             this.KontaktyGrid.TabIndex = 0;
             this.KontaktyGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.KontaktyGrid_CellContentClick);
             this.KontaktyGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.KontaktyGrid_CellDoubleClick);
+            this.KontaktyGrid.MouseDown += new System.Windows.Forms.MouseEventHandler(this.KontaktyGrid_MouseDown);
+            // 
+            // ID_kontakt
+            // 
+            this.ID_kontakt.DataPropertyName = "Id";
+            this.ID_kontakt.FillWeight = 18.27411F;
+            this.ID_kontakt.HeaderText = "ID";
+            this.ID_kontakt.Name = "ID_kontakt";
+            this.ID_kontakt.ReadOnly = true;
+            // 
+            // Nazwa
+            // 
+            this.Nazwa.DataPropertyName = "Nazwa";
+            this.Nazwa.FillWeight = 140.8629F;
+            this.Nazwa.HeaderText = "Nazwa";
+            this.Nazwa.Name = "Nazwa";
+            this.Nazwa.ReadOnly = true;
+            // 
+            // Wartosc
+            // 
+            this.Wartosc.DataPropertyName = "Wartość";
+            this.Wartosc.FillWeight = 140.8629F;
+            this.Wartosc.HeaderText = "Wartość";
+            this.Wartosc.Name = "Wartosc";
+            this.Wartosc.ReadOnly = true;
             // 
             // button1
             // 
@@ -295,29 +330,49 @@
             this.AddAdres.UseVisualStyleBackColor = true;
             this.AddAdres.Click += new System.EventHandler(this.AddAdres_Click);
             // 
-            // ID_kontakt
+            // CxMenu
             // 
-            this.ID_kontakt.DataPropertyName = "Id";
-            this.ID_kontakt.FillWeight = 18.27411F;
-            this.ID_kontakt.HeaderText = "ID";
-            this.ID_kontakt.Name = "ID_kontakt";
-            this.ID_kontakt.ReadOnly = true;
+            this.CxMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.formularzToolStripMenuItem,
+            this.usuńToolStripMenuItem});
+            this.CxMenu.Name = "CxMenu";
+            this.CxMenu.Size = new System.Drawing.Size(128, 48);
             // 
-            // Nazwa
+            // formularzToolStripMenuItem
             // 
-            this.Nazwa.DataPropertyName = "Nazwa";
-            this.Nazwa.FillWeight = 140.8629F;
-            this.Nazwa.HeaderText = "Nazwa";
-            this.Nazwa.Name = "Nazwa";
-            this.Nazwa.ReadOnly = true;
+            this.formularzToolStripMenuItem.Name = "formularzToolStripMenuItem";
+            this.formularzToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.formularzToolStripMenuItem.Text = "Formularz";
+            this.formularzToolStripMenuItem.Click += new System.EventHandler(this.formularzToolStripMenuItem_Click);
             // 
-            // Wartosc
+            // usuńToolStripMenuItem
             // 
-            this.Wartosc.DataPropertyName = "Wartość";
-            this.Wartosc.FillWeight = 140.8629F;
-            this.Wartosc.HeaderText = "Wartość";
-            this.Wartosc.Name = "Wartosc";
-            this.Wartosc.ReadOnly = true;
+            this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
+            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.usuńToolStripMenuItem.Text = "Usuń";
+            this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usuńToolStripMenuItem_Click);
+            // 
+            // CxKontaktMenu
+            // 
+            this.CxKontaktMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.formularzToolStripMenuItem1,
+            this.usuńToolStripMenuItem1});
+            this.CxKontaktMenu.Name = "CxKontaktMenu";
+            this.CxKontaktMenu.Size = new System.Drawing.Size(153, 70);
+            // 
+            // formularzToolStripMenuItem1
+            // 
+            this.formularzToolStripMenuItem1.Name = "formularzToolStripMenuItem1";
+            this.formularzToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.formularzToolStripMenuItem1.Text = "Formularz";
+            this.formularzToolStripMenuItem1.Click += new System.EventHandler(this.formularzToolStripMenuItem1_Click);
+            // 
+            // usuńToolStripMenuItem1
+            // 
+            this.usuńToolStripMenuItem1.Name = "usuńToolStripMenuItem1";
+            this.usuńToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.usuńToolStripMenuItem1.Text = "Usuń";
+            this.usuńToolStripMenuItem1.Click += new System.EventHandler(this.usuńToolStripMenuItem1_Click);
             // 
             // PodmiotForm
             // 
@@ -339,6 +394,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.KontaktyTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.KontaktyGrid)).EndInit();
+            this.CxMenu.ResumeLayout(false);
+            this.CxKontaktMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -370,5 +427,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_kontakt;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nazwa;
         private System.Windows.Forms.DataGridViewTextBoxColumn Wartosc;
+        private System.Windows.Forms.ContextMenuStrip CxMenu;
+        private System.Windows.Forms.ToolStripMenuItem formularzToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuńToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip CxKontaktMenu;
+        private System.Windows.Forms.ToolStripMenuItem formularzToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem usuńToolStripMenuItem1;
     }
 }

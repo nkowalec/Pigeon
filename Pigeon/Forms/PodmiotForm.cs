@@ -163,5 +163,77 @@ namespace Pigeon
         {
 
         }
+
+        private void AdresyGrid_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var index = AdresyGrid.HitTest(e.X, e.Y).RowIndex;
+                if (index >= 0)
+                {
+                    AdresyGrid.Rows[index].Selected = true;
+                    CxMenu.Show(Cursor.Position);
+                }
+            }
+        }
+
+        private void formularzToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                foreach(DataGridViewRow row in AdresyGrid.SelectedRows)
+                {
+                    Adres adres = row.DataBoundItem as Adres;
+                    AdresForm form = new AdresForm(adres);
+                    form.ShowDialog();
+                    break;
+                }
+        }
+
+        private void usuńToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in AdresyGrid.SelectedRows)
+            {
+                Adres adres = row.DataBoundItem as Adres;
+                Module.Adresy.Remove(adres);
+            }
+            Module.SaveChanges();
+            AdresyGrid.DataSource = Module.Adresy.ToList();
+            AdresyGrid.Refresh();
+        }
+
+        private void formularzToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in KontaktyGrid.SelectedRows)
+            {
+                Kontakt kontakt = row.DataBoundItem as Kontakt;
+                KontaktForm form = new KontaktForm(kontakt);
+                form.ShowDialog();
+                break;
+            }
+        }
+
+        private void KontaktyGrid_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var index = KontaktyGrid.HitTest(e.X, e.Y).RowIndex;
+                if (index >= 0)
+                {
+                    KontaktyGrid.Rows[index].Selected = true;
+                    CxKontaktMenu.Show(Cursor.Position);
+                }
+            }
+        }
+
+        private void usuńToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in KontaktyGrid.SelectedRows)
+            {
+                Kontakt kontakt = row.DataBoundItem as Kontakt;
+                Module.Kontakty.Remove(kontakt);
+            }
+            Module.SaveChanges();
+            KontaktyGrid.DataSource = Module.Kontakty.ToList();
+            KontaktyGrid.Refresh();
+        }
     }
 }

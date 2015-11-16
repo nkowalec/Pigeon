@@ -28,13 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.AddPodmiot = new System.Windows.Forms.Button();
             this.PodmiotyGrid = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.formularzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PodmiotyGrid)).BeginInit();
+            this.CxMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,7 +81,7 @@
             this.PodmiotyGrid.Size = new System.Drawing.Size(691, 370);
             this.PodmiotyGrid.TabIndex = 1;
             this.PodmiotyGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PodmiotyGrid_CellDoubleClick);
-            this.PodmiotyGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PodmiotyGrid_MouseClick);
+            this.PodmiotyGrid.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PodmiotyGrid_MouseDown);
             // 
             // ID
             // 
@@ -95,6 +100,28 @@
             this.Nazwa.Name = "Nazwa";
             this.Nazwa.ReadOnly = true;
             // 
+            // CxMenu
+            // 
+            this.CxMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.formularzToolStripMenuItem,
+            this.usuńToolStripMenuItem});
+            this.CxMenu.Name = "CxMenu";
+            this.CxMenu.Size = new System.Drawing.Size(153, 70);
+            // 
+            // formularzToolStripMenuItem
+            // 
+            this.formularzToolStripMenuItem.Name = "formularzToolStripMenuItem";
+            this.formularzToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.formularzToolStripMenuItem.Text = "Formularz";
+            this.formularzToolStripMenuItem.Click += new System.EventHandler(this.formularzToolStripMenuItem_Click);
+            // 
+            // usuńToolStripMenuItem
+            // 
+            this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
+            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuńToolStripMenuItem.Text = "Usuń";
+            this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usuńToolStripMenuItem_Click);
+            // 
             // Glowne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,6 +134,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PodmiotyGrid)).EndInit();
+            this.CxMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -118,6 +146,9 @@
         private System.Windows.Forms.DataGridView PodmiotyGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nazwa;
+        private System.Windows.Forms.ContextMenuStrip CxMenu;
+        private System.Windows.Forms.ToolStripMenuItem formularzToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuńToolStripMenuItem;
     }
 }
 

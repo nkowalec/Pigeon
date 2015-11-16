@@ -44,5 +44,42 @@ namespace Pigeon
             PodmiotyGrid.Refresh();
         }
 
+        private void PodmiotyGrid_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var index = PodmiotyGrid.HitTest(e.X, e.Y).RowIndex;
+                if (index >= 0) {
+                    PodmiotyGrid.Rows[index].Selected = true;
+                    CxMenu.Show(Cursor.Position);
+                }
+            }
+        }
+
+        private void formularzToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach(DataGridViewRow row in PodmiotyGrid.SelectedRows)
+            {
+                Podmiot podmiot = row.DataBoundItem as Podmiot;
+
+                PodmiotForm form = new PodmiotForm(podmiot);
+                form.ShowDialog();
+
+                break;
+            }
+
+        }
+
+        private void usuńToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in PodmiotyGrid.SelectedRows)
+            {
+                Podmiot podmiot = row.DataBoundItem as Podmiot;
+                module.Podmioty.Remove(podmiot);
+            }
+            module.SaveChanges();
+            PodmiotyGrid.DataSource = module.Podmioty.ToList();
+            PodmiotyGrid.Refresh();
+        }
     }
 }
