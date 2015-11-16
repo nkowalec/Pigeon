@@ -93,17 +93,23 @@
     <Compile Include="Forms\ConfigForm.Designer.cs">
       <DependentUpon>ConfigForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\GlowneProgram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GlowneProgram.Designer.cs">
+      <DependentUpon>GlowneProgram.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\KontaktForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\KontaktForm.Designer.cs">
       <DependentUpon>KontaktForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Glowne.cs">
+    <Compile Include="Forms\PodmiotyGlowne.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Glowne.Designer.cs">
-      <DependentUpon>Glowne.cs</DependentUpon>
+    <Compile Include="Forms\PodmiotyGlowne.Designer.cs">
+      <DependentUpon>PodmiotyGlowne.cs</DependentUpon>
     </Compile>
     <Compile Include="Kontakt.cs">
       <DependentUpon>Module.tt</DependentUpon>
@@ -161,14 +167,17 @@
     <EmbeddedResource Include="Forms\ConfigForm.resx">
       <DependentUpon>ConfigForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GlowneProgram.resx">
+      <DependentUpon>GlowneProgram.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\KontaktForm.resx">
       <DependentUpon>KontaktForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PodmiotForm.resx">
       <DependentUpon>PodmiotForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Glowne.resx">
-      <DependentUpon>Glowne.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\PodmiotyGlowne.resx">
+      <DependentUpon>PodmiotyGlowne.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

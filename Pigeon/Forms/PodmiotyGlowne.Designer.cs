@@ -1,6 +1,6 @@
 ﻿namespace Pigeon
 {
-    partial class Glowne
+    partial class PodmiotyGlowne
     {
         /// <summary>
         /// Required designer variable.

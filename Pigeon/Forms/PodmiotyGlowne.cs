@@ -11,10 +11,10 @@ using Pigeon.Properties;
 
 namespace Pigeon
 {
-    public partial class Glowne : Form
+    public partial class PodmiotyGlowne : Form
     {
         Module module = Module.GetInstance();
-        public Glowne()
+        public PodmiotyGlowne()
         {
             InitializeComponent();
         }
