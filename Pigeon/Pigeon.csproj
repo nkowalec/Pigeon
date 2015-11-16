@@ -79,12 +79,19 @@
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
     <Compile Include="Class\Adres.cs" />
+    <Compile Include="Class\Config.cs" />
     <Compile Include="Class\Module.cs" />
     <Compile Include="Forms\AdresForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AdresForm.Designer.cs">
       <DependentUpon>AdresForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConfigForm.Designer.cs">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\KontaktForm.cs">
       <SubType>Form</SubType>
@@ -150,6 +157,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\AdresForm.resx">
       <DependentUpon>AdresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConfigForm.resx">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\KontaktForm.resx">
       <DependentUpon>KontaktForm.cs</DependentUpon>
