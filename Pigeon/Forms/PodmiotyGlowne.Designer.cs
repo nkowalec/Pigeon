@@ -106,7 +106,7 @@
             this.formularzToolStripMenuItem,
             this.usuńToolStripMenuItem});
             this.CxMenu.Name = "CxMenu";
-            this.CxMenu.Size = new System.Drawing.Size(153, 70);
+            this.CxMenu.Size = new System.Drawing.Size(128, 48);
             // 
             // formularzToolStripMenuItem
             // 
@@ -118,19 +118,19 @@
             // usuńToolStripMenuItem
             // 
             this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
-            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.usuńToolStripMenuItem.Text = "Usuń";
             this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usuńToolStripMenuItem_Click);
             // 
-            // Glowne
+            // PodmiotyGlowne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 406);
             this.Controls.Add(this.PodmiotyGrid);
             this.Controls.Add(this.panel1);
-            this.Name = "Glowne";
-            this.Text = "Pigeon";
+            this.Name = "PodmiotyGlowne";
+            this.Text = "Podmioty";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PodmiotyGrid)).EndInit();
