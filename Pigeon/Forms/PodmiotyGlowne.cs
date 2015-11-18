@@ -23,6 +23,7 @@ namespace Pigeon
         {
             PodmiotyGrid.AutoGenerateColumns = false;
             PodmiotyGrid.DataSource = module.Podmioty.ToList<Podmiot>();
+            Pigeon.Class.GridView.SetGridSettings(ref PodmiotyGrid);
             PodmiotyGrid.Refresh();
         }
 
@@ -80,6 +81,11 @@ namespace Pigeon
             module.SaveChanges();
             PodmiotyGrid.DataSource = module.Podmioty.ToList();
             PodmiotyGrid.Refresh();
+        }
+
+        private void zapiszUstawieniaTabeliToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pigeon.Class.GridView.SaveSettingsFromGrid(PodmiotyGrid);
         }
     }
 }

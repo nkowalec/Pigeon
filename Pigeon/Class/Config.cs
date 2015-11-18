@@ -7,6 +7,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.IO;
+using static Pigeon.PassCode.PassEncoder;
 
 namespace Pigeon.Class
 {
@@ -26,11 +27,12 @@ namespace Pigeon.Class
             get;
             set;
         }
+        protected string pass;
         [XmlElement]
         public string Pass
         {
-            get;
-            set;
+            get { return pass; }
+            set { pass = Encode(value); }
         }
         [XmlElement]
         public string SMTP_Adres
@@ -88,6 +90,7 @@ namespace Pigeon.Class
                 serializer.Serialize(writer, config);
             }
         }
-        
+
+        public string GetPass() => Decode(Decode(pass));
     }
 }

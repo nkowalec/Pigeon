@@ -25,7 +25,7 @@ namespace Pigeon.Forms
         {
             emailText.Text = Config.Email;
             loginText.Text = Config.Login;
-            passText.Text = Config.Pass;
+            passText.Text = Config.GetPass();
             smtpAdresText.Text = Config.SMTP_Adres;
             smtpPortText.Text = Config.SMTP_Port.ToString();
         }

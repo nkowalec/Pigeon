@@ -37,6 +37,7 @@
             this.CxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.formularzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zapiszUstawieniaTabeliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PodmiotyGrid)).BeginInit();
             this.CxMenu.SuspendLayout();
@@ -104,23 +105,31 @@
             // 
             this.CxMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.formularzToolStripMenuItem,
-            this.usuńToolStripMenuItem});
+            this.usuńToolStripMenuItem,
+            this.zapiszUstawieniaTabeliToolStripMenuItem});
             this.CxMenu.Name = "CxMenu";
-            this.CxMenu.Size = new System.Drawing.Size(128, 48);
+            this.CxMenu.Size = new System.Drawing.Size(199, 92);
             // 
             // formularzToolStripMenuItem
             // 
             this.formularzToolStripMenuItem.Name = "formularzToolStripMenuItem";
-            this.formularzToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.formularzToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.formularzToolStripMenuItem.Text = "Formularz";
             this.formularzToolStripMenuItem.Click += new System.EventHandler(this.formularzToolStripMenuItem_Click);
             // 
             // usuńToolStripMenuItem
             // 
             this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
-            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.usuńToolStripMenuItem.Text = "Usuń";
             this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usuńToolStripMenuItem_Click);
+            // 
+            // zapiszUstawieniaTabeliToolStripMenuItem
+            // 
+            this.zapiszUstawieniaTabeliToolStripMenuItem.Name = "zapiszUstawieniaTabeliToolStripMenuItem";
+            this.zapiszUstawieniaTabeliToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.zapiszUstawieniaTabeliToolStripMenuItem.Text = "Zapisz ustawienia tabeli";
+            this.zapiszUstawieniaTabeliToolStripMenuItem.Click += new System.EventHandler(this.zapiszUstawieniaTabeliToolStripMenuItem_Click);
             // 
             // PodmiotyGlowne
             // 
@@ -149,6 +158,7 @@
         private System.Windows.Forms.ContextMenuStrip CxMenu;
         private System.Windows.Forms.ToolStripMenuItem formularzToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuńToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zapiszUstawieniaTabeliToolStripMenuItem;
     }
 }
 

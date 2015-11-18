@@ -23,7 +23,7 @@ namespace Pigeon.Forms
             Application.Exit();
         }
 
-        private void Podmioty_Click(object sender, EventArgs e)
+        private async void Podmioty_Click(object sender, EventArgs e)
         {
             PodmiotyGlowne form = new PodmiotyGlowne();
             form.Show();

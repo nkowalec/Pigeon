@@ -86,9 +86,11 @@ namespace Pigeon
             textBox1.Text = Podmiot.Nazwa;
             AdresyGrid.AutoGenerateColumns = false;
             AdresyGrid.DataSource = Podmiot.Adresy.ToList();
+            Pigeon.Class.GridView.SetGridSettings(ref AdresyGrid);
             AdresyGrid.Refresh();
             KontaktyGrid.AutoGenerateColumns = false;
             KontaktyGrid.DataSource = Podmiot.Kontakty.ToList();
+            Pigeon.Class.GridView.SetGridSettings(ref KontaktyGrid);
             KontaktyGrid.Refresh();
             if(Podmiot.Obrazek != null)
                 pictureBox1.Image = Image.FromStream(new MemoryStream(Podmiot.Obrazek));
@@ -234,6 +236,16 @@ namespace Pigeon
             Module.SaveChanges();
             KontaktyGrid.DataSource = Module.Kontakty.ToList();
             KontaktyGrid.Refresh();
+        }
+
+        private void zapiszUstawieniaTabeliToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pigeon.Class.GridView.SaveSettingsFromGrid(AdresyGrid);
+        }
+
+        private void zapiszUstawieniaTabeliToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Pigeon.Class.GridView.SaveSettingsFromGrid(KontaktyGrid);
         }
     }
 }

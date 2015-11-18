@@ -57,9 +57,11 @@
             this.CxMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.formularzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zapiszUstawieniaTabeliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CxKontaktMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.formularzToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.usuńToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.zapiszUstawieniaTabeliToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.PodmiotTabs.SuspendLayout();
             this.OgólneTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdresyGrid)).BeginInit();
@@ -115,7 +117,6 @@
             this.AdresyGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AdresyGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.AdresyGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AdresyGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -334,45 +335,61 @@
             // 
             this.CxMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.formularzToolStripMenuItem,
-            this.usuńToolStripMenuItem});
+            this.usuńToolStripMenuItem,
+            this.zapiszUstawieniaTabeliToolStripMenuItem});
             this.CxMenu.Name = "CxMenu";
-            this.CxMenu.Size = new System.Drawing.Size(128, 48);
+            this.CxMenu.Size = new System.Drawing.Size(199, 70);
             // 
             // formularzToolStripMenuItem
             // 
             this.formularzToolStripMenuItem.Name = "formularzToolStripMenuItem";
-            this.formularzToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.formularzToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.formularzToolStripMenuItem.Text = "Formularz";
             this.formularzToolStripMenuItem.Click += new System.EventHandler(this.formularzToolStripMenuItem_Click);
             // 
             // usuńToolStripMenuItem
             // 
             this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
-            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.usuńToolStripMenuItem.Text = "Usuń";
             this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usuńToolStripMenuItem_Click);
+            // 
+            // zapiszUstawieniaTabeliToolStripMenuItem
+            // 
+            this.zapiszUstawieniaTabeliToolStripMenuItem.Name = "zapiszUstawieniaTabeliToolStripMenuItem";
+            this.zapiszUstawieniaTabeliToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.zapiszUstawieniaTabeliToolStripMenuItem.Text = "Zapisz ustawienia tabeli";
+            this.zapiszUstawieniaTabeliToolStripMenuItem.Click += new System.EventHandler(this.zapiszUstawieniaTabeliToolStripMenuItem_Click);
             // 
             // CxKontaktMenu
             // 
             this.CxKontaktMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.formularzToolStripMenuItem1,
-            this.usuńToolStripMenuItem1});
+            this.usuńToolStripMenuItem1,
+            this.zapiszUstawieniaTabeliToolStripMenuItem1});
             this.CxKontaktMenu.Name = "CxKontaktMenu";
-            this.CxKontaktMenu.Size = new System.Drawing.Size(153, 70);
+            this.CxKontaktMenu.Size = new System.Drawing.Size(199, 70);
             // 
             // formularzToolStripMenuItem1
             // 
             this.formularzToolStripMenuItem1.Name = "formularzToolStripMenuItem1";
-            this.formularzToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.formularzToolStripMenuItem1.Size = new System.Drawing.Size(198, 22);
             this.formularzToolStripMenuItem1.Text = "Formularz";
             this.formularzToolStripMenuItem1.Click += new System.EventHandler(this.formularzToolStripMenuItem1_Click);
             // 
             // usuńToolStripMenuItem1
             // 
             this.usuńToolStripMenuItem1.Name = "usuńToolStripMenuItem1";
-            this.usuńToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.usuńToolStripMenuItem1.Size = new System.Drawing.Size(198, 22);
             this.usuńToolStripMenuItem1.Text = "Usuń";
             this.usuńToolStripMenuItem1.Click += new System.EventHandler(this.usuńToolStripMenuItem1_Click);
+            // 
+            // zapiszUstawieniaTabeliToolStripMenuItem1
+            // 
+            this.zapiszUstawieniaTabeliToolStripMenuItem1.Name = "zapiszUstawieniaTabeliToolStripMenuItem1";
+            this.zapiszUstawieniaTabeliToolStripMenuItem1.Size = new System.Drawing.Size(198, 22);
+            this.zapiszUstawieniaTabeliToolStripMenuItem1.Text = "Zapisz ustawienia tabeli";
+            this.zapiszUstawieniaTabeliToolStripMenuItem1.Click += new System.EventHandler(this.zapiszUstawieniaTabeliToolStripMenuItem1_Click);
             // 
             // PodmiotForm
             // 
@@ -433,5 +450,7 @@
         private System.Windows.Forms.ContextMenuStrip CxKontaktMenu;
         private System.Windows.Forms.ToolStripMenuItem formularzToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem usuńToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem zapiszUstawieniaTabeliToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zapiszUstawieniaTabeliToolStripMenuItem1;
     }
 }
