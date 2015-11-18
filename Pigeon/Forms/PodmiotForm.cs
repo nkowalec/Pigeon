@@ -94,6 +94,30 @@ namespace Pigeon
             KontaktyGrid.Refresh();
             if(Podmiot.Obrazek != null)
                 pictureBox1.Image = Image.FromStream(new MemoryStream(Podmiot.Obrazek));
+
+            foreach(DataGridViewColumn col in AdresyGrid.Columns)
+            {
+                var item = new ToolStripMenuItem();
+                item.CheckOnClick = true;
+                item.Text = col.HeaderText;
+                item.Checked = col.Visible;
+                item.CheckedChanged += (object sender, EventArgs e) => {
+                    col.Visible = item.Checked;
+                };
+                tabelaAdresyToolStripMenuItem.DropDownItems.Add(item);
+            }
+
+            foreach (DataGridViewColumn col in KontaktyGrid.Columns)
+            {
+                var item = new ToolStripMenuItem();
+                item.CheckOnClick = true;
+                item.Text = col.HeaderText;
+                item.Checked = col.Visible;
+                item.CheckedChanged += (object sender, EventArgs e) => {
+                    col.Visible = item.Checked;
+                };
+                tabelaKontaktyToolStripMenuItem.DropDownItems.Add(item);
+            }
         }
 
         /// <summary>
@@ -246,6 +270,21 @@ namespace Pigeon
         private void zapiszUstawieniaTabeliToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Pigeon.Class.GridView.SaveSettingsFromGrid(KontaktyGrid);
+        }
+
+        private void zamknijToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void zapiszUstawieniaTabeliToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            zapiszUstawieniaTabeliToolStripMenuItem_Click(sender, e);
+        }
+
+        private void zapiszUstawieniaTabeliToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            zapiszUstawieniaTabeliToolStripMenuItem1_Click(sender, e);
         }
     }
 }

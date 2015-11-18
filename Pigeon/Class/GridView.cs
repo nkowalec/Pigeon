@@ -35,9 +35,22 @@ namespace Pigeon.Class
             }
             view.ColumnVisible = lista;
             if (!Directory.Exists("Config")) Directory.CreateDirectory("Config");
-            using(var file = File.Open(Path(view.GridName), FileMode.OpenOrCreate, FileAccess.Write))
+            using(var file = File.Open(Path(view.GridName), FileMode.OpenOrCreate))
             {
-                serializer.Serialize(file, view);
+                using (TextWriter writer = new StreamWriter(file))
+                {
+                    writer.Write("");
+                    serializer.Serialize(writer, view);
+                }
+                string lastLine = File.ReadLines(file.Name).Last();
+                if (lastLine.EndsWith(">>"))    //Podczas serializacji, zdarzał się błąd, który dodawał dodatkowy '>' na końcu
+                {                               //To usuwa ten dodatkowy znak jeśli się pojawi
+                    using(var file2 = File.Open(Path(view.GridName), FileMode.Open))
+                    {
+                        file2.SetLength(file2.Length - 1);
+                    }   
+                }
+                
             }
         }
         public static void SetGridSettings(ref DataGridView _grid)
