@@ -11,6 +11,9 @@ using System.IO;
 
 namespace Pigeon.Class
 {
+    /// <summary>
+    /// Klasa obsługująca ustawienia widoczności kolumn gridów
+    /// </summary>
     [XmlRoot]
     public class GridView
     {
@@ -20,6 +23,10 @@ namespace Pigeon.Class
         [XmlElement]
         public List<GridColumnVisible> ColumnVisible { get; set; }
 
+        /// <summary>
+        /// Zapisuje ustawienia widoczności grida do pliku XML
+        /// </summary>
+        /// <param name="_grid"></param>
         public static void SaveSettingsFromGrid(DataGridView _grid)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(GridView));
@@ -53,6 +60,11 @@ namespace Pigeon.Class
                 
             }
         }
+
+        /// <summary>
+        /// Ustawia widoczności kolumn grida na podstawie danych pobranych z pliku XML
+        /// </summary>
+        /// <param name="_grid"></param>
         public static void SetGridSettings(ref DataGridView _grid)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(GridView));
@@ -76,6 +88,11 @@ namespace Pigeon.Class
             }
         }
 
+        /// <summary>
+        /// Dodaje do elementu "ToolStripMenuItem" elementy sterujące widocznością kolumn przekazanego grida
+        /// </summary>
+        /// <param name="_grid"></param>
+        /// <param name="_menuItem"></param>
         public static void PrepareMenuStripItemGridColumns(ref DataGridView _grid, ref ToolStripMenuItem _menuItem)
         {
             foreach (DataGridViewColumn col in _grid.Columns)
@@ -92,7 +109,6 @@ namespace Pigeon.Class
         }
     }
 
-    [XmlRoot]
     public class GridColumnVisible
     {
         [XmlElement]
