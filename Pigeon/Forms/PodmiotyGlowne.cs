@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Pigeon.Properties;
+using Pigeon.Class;
 
 namespace Pigeon
 {
@@ -25,6 +26,9 @@ namespace Pigeon
             PodmiotyGrid.DataSource = module.Podmioty.ToList<Podmiot>();
             Pigeon.Class.GridView.SetGridSettings(ref PodmiotyGrid);
             PodmiotyGrid.Refresh();
+
+            GridView.PrepareMenuStripItemGridColumns(ref PodmiotyGrid, ref tabelaPodmiotyToolStripMenuItem);
+            Pomoc.AddPomocItemsToMenuStripItem(ref pomocToolStripMenuItem);
         }
 
         private void AddPodmiot_Click(object sender, EventArgs e)
@@ -86,6 +90,16 @@ namespace Pigeon
         private void zapiszUstawieniaTabeliToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Pigeon.Class.GridView.SaveSettingsFromGrid(PodmiotyGrid);
+        }
+
+        private void zamknijToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void zapiszUstawieniaTabeliToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            zapiszUstawieniaTabeliToolStripMenuItem_Click(sender, e);
         }
     }
 }

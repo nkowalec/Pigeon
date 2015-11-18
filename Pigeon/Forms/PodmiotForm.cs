@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Pigeon.Forms;
 using System.IO;
+using Pigeon.Class;
 
 namespace Pigeon
 {
@@ -95,29 +96,10 @@ namespace Pigeon
             if(Podmiot.Obrazek != null)
                 pictureBox1.Image = Image.FromStream(new MemoryStream(Podmiot.Obrazek));
 
-            foreach(DataGridViewColumn col in AdresyGrid.Columns)
-            {
-                var item = new ToolStripMenuItem();
-                item.CheckOnClick = true;
-                item.Text = col.HeaderText;
-                item.Checked = col.Visible;
-                item.CheckedChanged += (object sender, EventArgs e) => {
-                    col.Visible = item.Checked;
-                };
-                tabelaAdresyToolStripMenuItem.DropDownItems.Add(item);
-            }
+            GridView.PrepareMenuStripItemGridColumns(ref AdresyGrid, ref tabelaAdresyToolStripMenuItem);
+            GridView.PrepareMenuStripItemGridColumns(ref KontaktyGrid, ref tabelaKontaktyToolStripMenuItem);
 
-            foreach (DataGridViewColumn col in KontaktyGrid.Columns)
-            {
-                var item = new ToolStripMenuItem();
-                item.CheckOnClick = true;
-                item.Text = col.HeaderText;
-                item.Checked = col.Visible;
-                item.CheckedChanged += (object sender, EventArgs e) => {
-                    col.Visible = item.Checked;
-                };
-                tabelaKontaktyToolStripMenuItem.DropDownItems.Add(item);
-            }
+            Pomoc.AddPomocItemsToMenuStripItem(ref pomocToolStripMenuItem);
         }
 
         /// <summary>

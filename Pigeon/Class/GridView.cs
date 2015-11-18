@@ -75,6 +75,21 @@ namespace Pigeon.Class
                 }
             }
         }
+
+        public static void PrepareMenuStripItemGridColumns(ref DataGridView _grid, ref ToolStripMenuItem _menuItem)
+        {
+            foreach (DataGridViewColumn col in _grid.Columns)
+            {
+                var item = new ToolStripMenuItem();
+                item.CheckOnClick = true;
+                item.Text = col.HeaderText;
+                item.Checked = col.Visible;
+                item.CheckedChanged += (object sender, EventArgs e) => {
+                    col.Visible = item.Checked;
+                };
+                _menuItem.DropDownItems.Add(item);
+            }
+        }
     }
 
     [XmlRoot]
