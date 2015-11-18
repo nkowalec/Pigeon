@@ -20,6 +20,7 @@ namespace Pigeon
             InitializeComponent();
         }
 
+        #region EVENTS
         private void Form1_Load(object sender, EventArgs e)
         {
             PodmiotyGrid.AutoGenerateColumns = false;
@@ -101,5 +102,6 @@ namespace Pigeon
         {
             zapiszUstawieniaTabeliToolStripMenuItem_Click(sender, e);
         }
+        #endregion
     }
 }

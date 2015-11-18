@@ -18,21 +18,24 @@ namespace Pigeon.Forms
             
         }
 
-        private void Close_Click(object sender, EventArgs e)
+        #region EVENTS
+        private void Close_Click(object sender, EventArgs e)    //zamyka Aplikację
         {
             Application.Exit();
         }
 
-        private async void Podmioty_Click(object sender, EventArgs e)
+        private async void Podmioty_Click(object sender, EventArgs e)   //otwiera okno Podmiotów
         {
             PodmiotyGlowne form = new PodmiotyGlowne();
             form.Show();
         }
 
-        private void Opcje_Click(object sender, EventArgs e)
+        private void Opcje_Click(object sender, EventArgs e)    //otwiera dialog konfiguracji
         {
             ConfigForm form = new ConfigForm();
             form.ShowDialog();
         }
+
+        #endregion
     }
 }

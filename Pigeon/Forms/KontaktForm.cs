@@ -14,12 +14,13 @@ namespace Pigeon.Forms
     {
         private Kontakt Kontakt { get; set; }
         private Module Module = Module.GetInstance();
-        public KontaktForm(Kontakt _kontakt)
+        public KontaktForm(Kontakt _kontakt)    //konstruktor przyjmuje obiekt, z którym będzie pracował
         {
             this.Kontakt = _kontakt;
             InitializeComponent();
         }
 
+        #region EVENTS
         private void KontaktForm_Load(object sender, EventArgs e)
         {
             if(Kontakt.Id == 0)
@@ -27,19 +28,6 @@ namespace Pigeon.Forms
                 this.Text += " (NOWY)";
             }
             PrepareForm();
-        }
-
-        private void PrepareForm()
-        {
-            this.TypKontaktu.DataSource = Enum.GetValues(typeof(TypKontaktu));
-            this.TypKontaktu.SelectedItem = Kontakt.Nazwa;
-            this.WartoscText.Text = Kontakt.Wartość;
-        }
-
-        private void CollectForm()
-        {
-            Kontakt.Nazwa = (TypKontaktu)TypKontaktu.SelectedItem;
-            Kontakt.Wartość = WartoscText.Text;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,5 +50,27 @@ namespace Pigeon.Forms
             }
             this.Close();
         }
+        #endregion
+
+        #region MyMethods
+        /// <summary>
+        /// Wrzuca dane z obiektu do formsa
+        /// </summary>
+        private void PrepareForm()
+        {
+            this.TypKontaktu.DataSource = Enum.GetValues(typeof(TypKontaktu));
+            this.TypKontaktu.SelectedItem = Kontakt.Nazwa;
+            this.WartoscText.Text = Kontakt.Wartość;
+        }
+
+        /// <summary>
+        /// Wrzuca dane z formsa do obiektu
+        /// </summary>
+        private void CollectForm()
+        {
+            Kontakt.Nazwa = (TypKontaktu)TypKontaktu.SelectedItem;
+            Kontakt.Wartość = WartoscText.Text;
+        }
+        #endregion
     }
 }

@@ -14,7 +14,7 @@ namespace Pigeon.Class
     [XmlRoot(ElementName = "Config")]
     public class Config
     {
-        #region EMAIL CONFIG
+        #region EMAIL CONFIG XML
         [XmlElement]
         public string Email
         {
@@ -91,6 +91,10 @@ namespace Pigeon.Class
             }
         }
 
-        public string GetPass() => Decode(Decode(pass));
+        /// <summary>
+        /// Pozwala uzyskać odszyfrowane hasło
+        /// </summary>
+        /// <returns></returns>
+        public string GetPass() => Decode(Decode(pass)); //podwójne dekodowanie, związane z kolejnością wykonywania akcesorów get/set
     }
 }

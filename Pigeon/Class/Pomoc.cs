@@ -9,6 +9,7 @@ namespace Pigeon.Class
 {
     class Pomoc
     {
+        #region TREŚĆ
         private static string infoText = "Application name: Pigeon \n" + 
             "Version: 1.0 \n" +
             "Created By: \n\n" + 
@@ -16,6 +17,7 @@ namespace Pigeon.Class
             "   - Mikołaj Karczewski \n\n" + 
             "Aplikacja przygotowana na zaliczenie projektu \n" + 
             "Programowanie Obiektowe - CDV";
+        #endregion
 
         /// <summary>
         /// Dodaje do przekazanego Elementu, element informacje

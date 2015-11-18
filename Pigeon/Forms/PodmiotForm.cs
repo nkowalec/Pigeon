@@ -17,12 +17,13 @@ namespace Pigeon
     {
         private Podmiot Podmiot;
         private Module Module = Module.GetInstance();
-        public PodmiotForm(Podmiot _podmiot)
+        public PodmiotForm(Podmiot _podmiot)    //konstruktor przyjmuje obiekt, z którym forms będzie pracował
         {
             this.Podmiot = _podmiot;
             InitializeComponent();
         }
 
+        #region EVENTS
         private void PodmiotForm_Load(object sender, EventArgs e)
         {
             if(Podmiot.Id == 0)
@@ -51,16 +52,6 @@ namespace Pigeon
             AddAdres.Visible = false;
         }
 
-        private void KontaktyTab_Leave(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void comboBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void OgólneTab_Enter(object sender, EventArgs e)
         {
             AddKontakt.Visible = false;
@@ -77,40 +68,6 @@ namespace Pigeon
             AdresyGrid.DataSource = Podmiot.Adresy.ToList();
             AdresyGrid.Refresh();
             
-        }
-
-        /// <summary>
-        /// Wyciąga dane z obiektu do okienka
-        /// </summary>
-        private void PrepareForm()
-        {
-            textBox1.Text = Podmiot.Nazwa;
-            AdresyGrid.AutoGenerateColumns = false;
-            AdresyGrid.DataSource = Podmiot.Adresy.ToList();
-            Pigeon.Class.GridView.SetGridSettings(ref AdresyGrid);
-            AdresyGrid.Refresh();
-            KontaktyGrid.AutoGenerateColumns = false;
-            KontaktyGrid.DataSource = Podmiot.Kontakty.ToList();
-            Pigeon.Class.GridView.SetGridSettings(ref KontaktyGrid);
-            KontaktyGrid.Refresh();
-            if(Podmiot.Obrazek != null)
-                pictureBox1.Image = Image.FromStream(new MemoryStream(Podmiot.Obrazek));
-
-            GridView.PrepareMenuStripItemGridColumns(ref AdresyGrid, ref tabelaAdresyToolStripMenuItem);
-            GridView.PrepareMenuStripItemGridColumns(ref KontaktyGrid, ref tabelaKontaktyToolStripMenuItem);
-
-            Pomoc.AddPomocItemsToMenuStripItem(ref pomocToolStripMenuItem);
-        }
-
-        /// <summary>
-        /// Zbiera informacje z okienka do obiektu
-        /// </summary>
-        private void CollectForm()
-        {
-            Podmiot.Nazwa = textBox1.Text;
-            ImageConverter converter = new ImageConverter();
-            if(pictureBox1.Image != null)
-            Podmiot.Obrazek = (byte[])converter.ConvertTo(pictureBox1.Image, typeof(byte[]));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -165,11 +122,6 @@ namespace Pigeon
 
                 }
             }
-        }
-
-        private void KontaktyGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void AdresyGrid_MouseDown(object sender, MouseEventArgs e)
@@ -268,5 +220,43 @@ namespace Pigeon
         {
             zapiszUstawieniaTabeliToolStripMenuItem1_Click(sender, e);
         }
+
+        #endregion
+
+        #region MyMethods
+        /// <summary>
+        /// Wyciąga dane z obiektu do okienka
+        /// </summary>
+        private void PrepareForm()
+        {
+            textBox1.Text = Podmiot.Nazwa;
+            AdresyGrid.AutoGenerateColumns = false;
+            AdresyGrid.DataSource = Podmiot.Adresy.ToList();
+            Pigeon.Class.GridView.SetGridSettings(ref AdresyGrid);
+            AdresyGrid.Refresh();
+            KontaktyGrid.AutoGenerateColumns = false;
+            KontaktyGrid.DataSource = Podmiot.Kontakty.ToList();
+            Pigeon.Class.GridView.SetGridSettings(ref KontaktyGrid);
+            KontaktyGrid.Refresh();
+            if (Podmiot.Obrazek != null)
+                pictureBox1.Image = Image.FromStream(new MemoryStream(Podmiot.Obrazek));
+
+            GridView.PrepareMenuStripItemGridColumns(ref AdresyGrid, ref tabelaAdresyToolStripMenuItem);
+            GridView.PrepareMenuStripItemGridColumns(ref KontaktyGrid, ref tabelaKontaktyToolStripMenuItem);
+
+            Pomoc.AddPomocItemsToMenuStripItem(ref pomocToolStripMenuItem);
+        }
+
+        /// <summary>
+        /// Zbiera informacje z okienka do obiektu
+        /// </summary>
+        private void CollectForm()
+        {
+            Podmiot.Nazwa = textBox1.Text;
+            ImageConverter converter = new ImageConverter();
+            if (pictureBox1.Image != null)
+                Podmiot.Obrazek = (byte[])converter.ConvertTo(pictureBox1.Image, typeof(byte[]));
+        }
+        #endregion
     }
 }

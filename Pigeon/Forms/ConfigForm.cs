@@ -14,13 +14,28 @@ namespace Pigeon.Forms
     public partial class ConfigForm : Form
     {
         private Config Config = Config.GetInstance();
-        public ConfigForm()
+        public ConfigForm()     //w konstuktorze zostaje przygotowany forms z danymi
         {
             InitializeComponent();
 
             PrepareForm();
         }
 
+        #region EVENTS
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CollectForm();
+            Config.Update();
+
+            this.Close();
+        }
+
+        #endregion
+
+        #region MyMethods
+        /// <summary>
+        /// Wrzuca dane z obiektu do formsa
+        /// </summary>
         private void PrepareForm()
         {
             emailText.Text = Config.Email;
@@ -30,14 +45,9 @@ namespace Pigeon.Forms
             smtpPortText.Text = Config.SMTP_Port.ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CollectForm();
-            Config.Update();
-
-            this.Close();
-        }
-
+        /// <summary>
+        /// Wrzuca dane z formsa do obiektu
+        /// </summary>
         private void CollectForm()
         {
             Config.Email = emailText.Text;
@@ -46,5 +56,6 @@ namespace Pigeon.Forms
             Config.SMTP_Adres = smtpAdresText.Text;
             Config.SMTP_Port = int.Parse(smtpPortText.Text);
         }
+        #endregion
     }
 }
