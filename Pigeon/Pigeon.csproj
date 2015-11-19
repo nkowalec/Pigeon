@@ -115,6 +115,12 @@
     <Compile Include="Forms\PodmiotyGlowne.Designer.cs">
       <DependentUpon>PodmiotyGlowne.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\WiadomosciForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WiadomosciForm.Designer.cs">
+      <DependentUpon>WiadomosciForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kontakt.cs">
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
@@ -144,6 +150,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatusWiadomosci.cs">
+      <DependentUpon>Module.tt</DependentUpon>
+    </Compile>
     <Compile Include="TypAdresu.cs">
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
@@ -182,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PodmiotyGlowne.resx">
       <DependentUpon>PodmiotyGlowne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WiadomosciForm.resx">
+      <DependentUpon>WiadomosciForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

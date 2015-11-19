@@ -86,6 +86,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Temat" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Treść" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
     <Property Name="Adresat_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="AdresaciDW">
@@ -120,7 +121,9 @@
     <Property Name="Wiadomość_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="PodmiotKontakt">
-    <End Role="Podmiot" Type="PDBModel.Store.Podmioty" Multiplicity="1" />
+    <End Role="Podmiot" Type="PDBModel.Store.Podmioty" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Kontakt" Type="PDBModel.Store.Kontakty" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Podmiot">
@@ -204,7 +207,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PodmiotAdres">
-    <End Role="Podmiot" Type="PDBModel.Store.Podmioty" Multiplicity="1" />
+    <End Role="Podmiot" Type="PDBModel.Store.Podmioty" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Adres" Type="PDBModel.Store.Adresy" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Podmiot">
@@ -345,6 +350,7 @@
           <Property Name="Temat" Type="String" Nullable="false" />
           <Property Name="Treść" Type="String" Nullable="false" />
           <NavigationProperty Name="Załączniki" Relationship="PDBModel.ZałącznikWiadomość" FromRole="Wiadomość" ToRole="Załącznik" />
+          <Property Name="Status" Type="PDBModel.StatusWiadomosci" Nullable="false" />
         </EntityType>
         <Association Name="WiadomośćKontakt">
           <End Type="PDBModel.Wiadomość" Role="Wiadomość" Multiplicity="*" />
@@ -447,6 +453,10 @@
           <Member Name="Email_Prywatny" />
           <Member Name="Email_Służbowy" />
         </EnumType>
+        <EnumType Name="StatusWiadomosci">
+          <Member Name="Wyslana" />
+          <Member Name="Robocza" />
+        </EnumType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -494,6 +504,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Temat" ColumnName="Temat" />
           <ScalarProperty Name="Treść" ColumnName="Treść" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

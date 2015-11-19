@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/13/2015 17:37:49
+-- Date Created: 11/19/2015 19:52:12
 -- Generated from EDMX file: C:\Projekty\Pigeon\Pigeon\Module.edmx
 -- --------------------------------------------------
 
@@ -109,6 +109,7 @@ CREATE TABLE [dbo].[Wiadomości] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Temat] nvarchar(max)  NOT NULL,
     [Treść] nvarchar(max)  NOT NULL,
+    [Status] int  NOT NULL,
     [Adresat_Id] int  NOT NULL
 );
 GO
@@ -200,7 +201,7 @@ ADD CONSTRAINT [FK_PodmiotKontakt]
     FOREIGN KEY ([PodmiotId])
     REFERENCES [dbo].[Podmioty]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PodmiotKontakt'
@@ -305,7 +306,7 @@ ADD CONSTRAINT [FK_PodmiotAdres]
     FOREIGN KEY ([PodmiotId1])
     REFERENCES [dbo].[Podmioty]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PodmiotAdres'
