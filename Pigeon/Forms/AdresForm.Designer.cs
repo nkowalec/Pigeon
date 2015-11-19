@@ -174,7 +174,6 @@
             this.KodText.Name = "KodText";
             this.KodText.Size = new System.Drawing.Size(269, 20);
             this.KodText.TabIndex = 5;
-            this.KodText.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // DomText
             // 

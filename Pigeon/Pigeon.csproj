@@ -84,6 +84,7 @@
     <Compile Include="Class\Module.cs" />
     <Compile Include="Class\PassEncoder.cs" />
     <Compile Include="Class\Pomoc.cs" />
+    <Compile Include="Class\Wiadomość.cs" />
     <Compile Include="Forms\AdresForm.cs">
       <SubType>Form</SubType>
     </Compile>

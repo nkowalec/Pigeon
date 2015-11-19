@@ -263,7 +263,6 @@
             this.KontaktyTab.Text = "Kontakty";
             this.KontaktyTab.UseVisualStyleBackColor = true;
             this.KontaktyTab.Enter += new System.EventHandler(this.KontaktyTab_Enter);
-            this.KontaktyTab.Leave += new System.EventHandler(this.KontaktyTab_Leave);
             // 
             // KontaktyGrid
             // 
@@ -282,7 +281,6 @@
             this.KontaktyGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.KontaktyGrid.Size = new System.Drawing.Size(530, 228);
             this.KontaktyGrid.TabIndex = 0;
-            this.KontaktyGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.KontaktyGrid_CellContentClick);
             this.KontaktyGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.KontaktyGrid_CellDoubleClick);
             this.KontaktyGrid.MouseDown += new System.Windows.Forms.MouseEventHandler(this.KontaktyGrid_MouseDown);
             // 
