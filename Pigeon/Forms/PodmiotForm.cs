@@ -227,7 +227,7 @@ namespace Pigeon
         /// <summary>
         /// Wyciąga dane z obiektu do okienka
         /// </summary>
-        void IObjectForm.PrepareForm()
+        public void PrepareForm()
         {
             textBox1.Text = Podmiot.Nazwa;
             AdresyGrid.AutoGenerateColumns = false;
@@ -250,7 +250,7 @@ namespace Pigeon
         /// <summary>
         /// Zbiera informacje z okienka do obiektu
         /// </summary>
-        void IObjectForm.CollectForm()
+        public void CollectForm()
         {
             Podmiot.Nazwa = textBox1.Text;
             ImageConverter converter = new ImageConverter();

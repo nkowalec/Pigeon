@@ -50,7 +50,7 @@ namespace Pigeon.Forms
         /// <summary>
         /// Umieszcza informacje z obiektu w oknie
         /// </summary>
-        void IObjectForm.PrepareForm()
+        public void PrepareForm()
         {
             TypCombo.SelectedItem = Adres.Typ;
             WojCombo.SelectedItem = Adres.Wojewodztwo;
@@ -65,7 +65,7 @@ namespace Pigeon.Forms
         /// <summary>
         /// Zbiera informacje z okna do obiektu
         /// </summary>
-        void IObjectForm.CollectForm()
+        public void CollectForm()
         {
             Adres.Typ = (TypAdresu)TypCombo.SelectedItem;
 

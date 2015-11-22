@@ -82,6 +82,7 @@
     <Compile Include="Class\Config.cs" />
     <Compile Include="Class\GridView.cs" />
     <Compile Include="Class\IObjectForm.cs" />
+    <Compile Include="Class\Kontakt.cs" />
     <Compile Include="Class\Module.cs" />
     <Compile Include="Class\PassEncoder.cs" />
     <Compile Include="Class\Pomoc.cs" />

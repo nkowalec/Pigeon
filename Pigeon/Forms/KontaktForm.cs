@@ -57,7 +57,7 @@ namespace Pigeon.Forms
         /// <summary>
         /// Wrzuca dane z obiektu do formsa
         /// </summary>
-        void IObjectForm.PrepareForm()
+        public void PrepareForm()
         {
             this.TypKontaktu.DataSource = Enum.GetValues(typeof(TypKontaktu));
             this.TypKontaktu.SelectedItem = Kontakt.Nazwa;
@@ -67,7 +67,7 @@ namespace Pigeon.Forms
         /// <summary>
         /// Wrzuca dane z formsa do obiektu
         /// </summary>
-        void IObjectForm.CollectForm()
+        public void CollectForm()
         {
             Kontakt.Nazwa = (TypKontaktu)TypKontaktu.SelectedItem;
             Kontakt.Wartość = WartoscText.Text;
