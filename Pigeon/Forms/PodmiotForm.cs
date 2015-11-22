@@ -13,7 +13,7 @@ using Pigeon.Class;
 
 namespace Pigeon
 {
-    public partial class PodmiotForm : Form
+    public partial class PodmiotForm : Form, IObjectForm
     {
         private Podmiot Podmiot;
         private Module Module = Module.GetInstance();
@@ -227,7 +227,7 @@ namespace Pigeon
         /// <summary>
         /// Wyciąga dane z obiektu do okienka
         /// </summary>
-        private void PrepareForm()
+        void IObjectForm.PrepareForm()
         {
             textBox1.Text = Podmiot.Nazwa;
             AdresyGrid.AutoGenerateColumns = false;
@@ -250,7 +250,7 @@ namespace Pigeon
         /// <summary>
         /// Zbiera informacje z okienka do obiektu
         /// </summary>
-        private void CollectForm()
+        void IObjectForm.CollectForm()
         {
             Podmiot.Nazwa = textBox1.Text;
             ImageConverter converter = new ImageConverter();

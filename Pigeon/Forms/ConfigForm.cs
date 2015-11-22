@@ -11,7 +11,7 @@ using Pigeon.Class;
 
 namespace Pigeon.Forms
 {
-    public partial class ConfigForm : Form
+    public partial class ConfigForm : Form, IObjectForm
     {
         private Config Config = Config.GetInstance();
         public ConfigForm()     //w konstuktorze zostaje przygotowany forms z danymi
@@ -36,7 +36,7 @@ namespace Pigeon.Forms
         /// <summary>
         /// Wrzuca dane z obiektu do formsa
         /// </summary>
-        private void PrepareForm()
+        void IObjectForm.PrepareForm()
         {
             emailText.Text = Config.Email;
             loginText.Text = Config.Login;
@@ -48,7 +48,7 @@ namespace Pigeon.Forms
         /// <summary>
         /// Wrzuca dane z formsa do obiektu
         /// </summary>
-        private void CollectForm()
+        void IObjectForm.CollectForm()
         {
             Config.Email = emailText.Text;
             Config.Login = loginText.Text;

@@ -81,6 +81,7 @@
     <Compile Include="Class\Adres.cs" />
     <Compile Include="Class\Config.cs" />
     <Compile Include="Class\GridView.cs" />
+    <Compile Include="Class\IObjectForm.cs" />
     <Compile Include="Class\Module.cs" />
     <Compile Include="Class\PassEncoder.cs" />
     <Compile Include="Class\Pomoc.cs" />
@@ -114,6 +115,12 @@
     </Compile>
     <Compile Include="Forms\PodmiotyGlowne.Designer.cs">
       <DependentUpon>PodmiotyGlowne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WiadomoscForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WiadomoscForm.Designer.cs">
+      <DependentUpon>WiadomoscForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\WiadomosciForm.cs">
       <SubType>Form</SubType>
@@ -191,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PodmiotyGlowne.resx">
       <DependentUpon>PodmiotyGlowne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WiadomoscForm.resx">
+      <DependentUpon>WiadomoscForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WiadomosciForm.resx">
       <DependentUpon>WiadomosciForm.cs</DependentUpon>

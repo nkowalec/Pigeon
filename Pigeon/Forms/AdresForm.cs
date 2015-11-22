@@ -11,7 +11,7 @@ using Pigeon.Class;
 
 namespace Pigeon.Forms
 {
-    public partial class AdresForm : Form
+    public partial class AdresForm : Form, IObjectForm
     {
         private Adres Adres;
         private Module Module = Module.GetInstance();
@@ -50,7 +50,7 @@ namespace Pigeon.Forms
         /// <summary>
         /// Umieszcza informacje z obiektu w oknie
         /// </summary>
-        private void PrepareForm()
+        void IObjectForm.PrepareForm()
         {
             TypCombo.SelectedItem = Adres.Typ;
             WojCombo.SelectedItem = Adres.Wojewodztwo;
@@ -65,7 +65,7 @@ namespace Pigeon.Forms
         /// <summary>
         /// Zbiera informacje z okna do obiektu
         /// </summary>
-        private void CollectForm()
+        void IObjectForm.CollectForm()
         {
             Adres.Typ = (TypAdresu)TypCombo.SelectedItem;
 

@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Pigeon.Class;
 
 namespace Pigeon.Forms
 {
-    public partial class KontaktForm : Form
+    public partial class KontaktForm : Form, IObjectForm
     {
         private Kontakt Kontakt { get; set; }
         private Module Module = Module.GetInstance();
@@ -56,7 +57,7 @@ namespace Pigeon.Forms
         /// <summary>
         /// Wrzuca dane z obiektu do formsa
         /// </summary>
-        private void PrepareForm()
+        void IObjectForm.PrepareForm()
         {
             this.TypKontaktu.DataSource = Enum.GetValues(typeof(TypKontaktu));
             this.TypKontaktu.SelectedItem = Kontakt.Nazwa;
@@ -66,7 +67,7 @@ namespace Pigeon.Forms
         /// <summary>
         /// Wrzuca dane z formsa do obiektu
         /// </summary>
-        private void CollectForm()
+        void IObjectForm.CollectForm()
         {
             Kontakt.Nazwa = (TypKontaktu)TypKontaktu.SelectedItem;
             Kontakt.Wartość = WartoscText.Text;
