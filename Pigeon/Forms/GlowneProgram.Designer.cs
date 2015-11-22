@@ -81,6 +81,7 @@
             this.Wiadomosci.TabIndex = 1;
             this.Wiadomosci.Text = "Wiadomości\r\n(Wysłane i nowe)\r\n";
             this.Wiadomosci.UseVisualStyleBackColor = true;
+            this.Wiadomosci.Click += new System.EventHandler(this.Wiadomosci_Click);
             // 
             // Podmioty
             // 

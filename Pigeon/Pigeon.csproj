@@ -85,8 +85,15 @@
     <Compile Include="Class\Kontakt.cs" />
     <Compile Include="Class\Module.cs" />
     <Compile Include="Class\PassEncoder.cs" />
+    <Compile Include="Class\Podmiot.cs" />
     <Compile Include="Class\Pomoc.cs" />
     <Compile Include="Class\Wiadomość.cs" />
+    <Compile Include="Forms\AdresatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdresatForm.Designer.cs">
+      <DependentUpon>AdresatForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AdresForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +189,9 @@
     <Compile Include="Załącznik.cs">
       <DependentUpon>Module.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AdresatForm.resx">
+      <DependentUpon>AdresatForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AdresForm.resx">
       <DependentUpon>AdresForm.cs</DependentUpon>
     </EmbeddedResource>

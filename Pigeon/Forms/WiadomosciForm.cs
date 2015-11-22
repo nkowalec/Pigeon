@@ -16,5 +16,14 @@ namespace Pigeon.Forms
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Wiadomość wiad = new Wiadomość();
+            wiad.Status = StatusWiadomosci.Robocza;
+
+            WiadomoscForm form = new WiadomoscForm(wiad);
+            form.ShowDialog();
+        }
     }
 }

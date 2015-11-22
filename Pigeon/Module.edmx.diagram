@@ -12,11 +12,11 @@
         <AssociationConnector Association="PDBModel.PodmiotAdres" />
       </Diagram>
       <Diagram DiagramId="27ff5b3115754d1d94e69d6588abcb1d" Name="StrefaK" >
-        <EntityTypeShape EntityType="PDBModel.Wiadomość" Width="1.5" PointX="1.5" PointY="0.5" />
+        <EntityTypeShape EntityType="PDBModel.Wiadomość" Width="1.5" PointX="1.25" PointY="0.5" />
         <EntityTypeShape EntityType="PDBModel.AdresatDW" Width="1.5" PointX="5.25" PointY="0.625" />
         <AssociationConnector Association="PDBModel.WiadomośćAdresatDW" />
         <AssociationConnector Association="PDBModel.WiadomośćAdresatDW1" />
-        <EntityTypeShape EntityType="PDBModel.Załącznik" Width="1.5" PointX="3.625" PointY="3.375" />
+        <EntityTypeShape EntityType="PDBModel.Załącznik" Width="1.5" PointX="3" PointY="3.75" />
         <AssociationConnector Association="PDBModel.ZałącznikWiadomość" />
       </Diagram>
       <Diagram DiagramId="ec0a17bfa5bb465999e499c3b07d9dcc" Name="StrefaZ" >

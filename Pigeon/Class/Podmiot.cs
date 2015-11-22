@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Pigeon
 {
-    partial class Kontakt
+    partial class Podmiot
     {
         public override string ToString()
         {
-            return $"{this.Podmiot.Nazwa} - {this.Wartość}";
+            return this.Nazwa;
         }
     }
 }

@@ -38,5 +38,22 @@ namespace Pigeon.Forms
                 this.Text += " (NOWA)";
             }
         }
+
+        private void AddAdres_Click(object sender, EventArgs e)
+        {
+            AdresatDW adresat = new AdresatDW();
+            adresat.Wiadomość = Wiadomość;
+
+            AdresatForm form = new AdresatForm(adresat);
+            form.ShowDialog();
+        }
+
+        private void AdresatCombo_DropDown(object sender, EventArgs e)
+        {
+            AdresatForm form = new AdresatForm(this.AdresatCombo);
+            form.ShowDialog();
+            AdresatCombo.AllowDrop = false;
+            this.Focus();
+        }
     }
 }

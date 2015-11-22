@@ -37,5 +37,11 @@ namespace Pigeon.Forms
         }
 
         #endregion
+
+        private void Wiadomosci_Click(object sender, EventArgs e)
+        {
+            WiadomosciForm form = new WiadomosciForm();
+            form.Show();
+        }
     }
 }

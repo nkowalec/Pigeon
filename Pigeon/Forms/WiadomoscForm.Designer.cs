@@ -36,15 +36,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.AddAdres = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.AdresatCombo = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.AddAdres = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -129,70 +129,14 @@
             this.tabPage1.Text = "Wiadomość";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // AdresatCombo
             // 
-            this.tabPage2.Controls.Add(this.AddAdres);
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(526, 280);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Dodatkowi odbiorcy";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(526, 249);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // AddAdres
-            // 
-            this.AddAdres.Location = new System.Drawing.Point(3, 4);
-            this.AddAdres.Name = "AddAdres";
-            this.AddAdres.Size = new System.Drawing.Size(115, 23);
-            this.AddAdres.TabIndex = 1;
-            this.AddAdres.Text = "Dodaj Adresata";
-            this.AddAdres.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Temat:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(46, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Wiadomość:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Adresat:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(92, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(362, 20);
-            this.textBox1.TabIndex = 3;
+            this.AdresatCombo.FormattingEnabled = true;
+            this.AdresatCombo.Location = new System.Drawing.Point(92, 20);
+            this.AdresatCombo.Name = "AdresatCombo";
+            this.AdresatCombo.Size = new System.Drawing.Size(362, 21);
+            this.AdresatCombo.TabIndex = 5;
+            this.AdresatCombo.DropDown += new System.EventHandler(this.AdresatCombo_DropDown);
             // 
             // textBox2
             // 
@@ -205,13 +149,71 @@
             this.textBox2.Size = new System.Drawing.Size(509, 169);
             this.textBox2.TabIndex = 4;
             // 
-            // AdresatCombo
+            // textBox1
             // 
-            this.AdresatCombo.FormattingEnabled = true;
-            this.AdresatCombo.Location = new System.Drawing.Point(92, 20);
-            this.AdresatCombo.Name = "AdresatCombo";
-            this.AdresatCombo.Size = new System.Drawing.Size(362, 21);
-            this.AdresatCombo.TabIndex = 5;
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(92, 54);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(362, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(46, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Adresat:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(46, 85);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Wiadomość:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(46, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Temat:";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.AddAdres);
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(527, 280);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Dodatkowi odbiorcy";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // AddAdres
+            // 
+            this.AddAdres.Location = new System.Drawing.Point(3, 4);
+            this.AddAdres.Name = "AddAdres";
+            this.AddAdres.Size = new System.Drawing.Size(115, 23);
+            this.AddAdres.TabIndex = 1;
+            this.AddAdres.Text = "Dodaj Adresata";
+            this.AddAdres.UseVisualStyleBackColor = true;
+            this.AddAdres.Click += new System.EventHandler(this.AddAdres_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 31);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(526, 249);
+            this.dataGridView1.TabIndex = 0;
             // 
             // WiadomoscForm
             // 
