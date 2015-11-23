@@ -12,9 +12,16 @@ namespace Pigeon.Forms
 {
     public partial class WiadomosciForm : Form
     {
+        Module Module = Module.GetInstance();
         public WiadomosciForm()
         {
             InitializeComponent();
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = Module.Wiadomości.ToList();
+            dataGridView1.Refresh();
+
+            Pigeon.Class.GridView.SetGridSettings(ref dataGridView1);
+            Pigeon.Class.GridView.PrepareMenuStripItemGridColumns(ref dataGridView1, ref tabelaWiadomościToolStripMenuItem);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -24,6 +31,30 @@ namespace Pigeon.Forms
 
             WiadomoscForm form = new WiadomoscForm(wiad);
             form.ShowDialog();
+
+            dataGridView1.DataSource = Module.Wiadomości.ToList();
+            dataGridView1.Refresh();
+        }
+
+        private void zapiszUstawieniaTabeliToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pigeon.Class.GridView.SaveSettingsFromGrid(dataGridView1);
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var wiadomosc = dataGridView1.Rows[e.RowIndex].DataBoundItem as Wiadomość;
+
+            WiadomoscForm form = new WiadomoscForm(wiadomosc);
+            form.ShowDialog();
+
+            dataGridView1.DataSource = Module.Wiadomości.ToList();
+            dataGridView1.Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

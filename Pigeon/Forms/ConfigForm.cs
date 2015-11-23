@@ -43,6 +43,7 @@ namespace Pigeon.Forms
             passText.Text = Config.GetPass();
             smtpAdresText.Text = Config.SMTP_Adres;
             smtpPortText.Text = Config.SMTP_Port.ToString();
+            checkBox1.Checked = Config.SSL;
         }
 
         /// <summary>
@@ -55,6 +56,7 @@ namespace Pigeon.Forms
             Config.Pass = passText.Text;
             Config.SMTP_Adres = smtpAdresText.Text;
             Config.SMTP_Port = int.Parse(smtpPortText.Text);
+            Config.SSL = checkBox1.Checked;
         }
         #endregion
     }

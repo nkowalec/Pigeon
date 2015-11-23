@@ -46,6 +46,12 @@ namespace Pigeon.Class
             get;
             set;
         }
+        [XmlElement]
+        public bool SSL
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Instancja

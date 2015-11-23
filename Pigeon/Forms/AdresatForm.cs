@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Pigeon.Class;
+using System.Diagnostics;
 
 namespace Pigeon.Forms
 {
@@ -84,7 +85,12 @@ namespace Pigeon.Forms
                 {
                     Module.AdresaciDW.Add((AdresatDW)Adres);
                 }
-                Module.SaveChanges();
+                try {
+                    Module.SaveChanges();
+                }catch(System.Data.Entity.Validation.DbEntityValidationException ex)
+                {
+                    MessageBox.Show(ex.EntityValidationErrors.First().ValidationErrors.First().ErrorMessage);
+                }
             }
 
             this.Close();

@@ -40,18 +40,14 @@ namespace Pigeon
             }
 
             SmtpClient smtp = new SmtpClient(conf.SMTP_Adres, conf.SMTP_Port);
-            smtp.Credentials = new NetworkCredential(conf.Login, conf.Pass);
-            smtp.EnableSsl = true;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new NetworkCredential(conf.Login, conf.GetPass());
+            smtp.EnableSsl = conf.SSL;
+            
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
 
-            try
-            {
-                smtp.Send(wiadomosc);
-            }
-            catch(Exception except)
-            {
-                MessageBox.Show(except.Message);
-            }
+            smtp.Send(wiadomosc);
+
         }
     }
 }

@@ -31,9 +31,14 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.widokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabelaWiadomościToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zapiszUstawieniaTabeliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Adresat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Temat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -59,9 +64,26 @@
             // 
             // widokToolStripMenuItem
             // 
+            this.widokToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tabelaWiadomościToolStripMenuItem});
             this.widokToolStripMenuItem.Name = "widokToolStripMenuItem";
             this.widokToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.widokToolStripMenuItem.Text = "Widok";
+            // 
+            // tabelaWiadomościToolStripMenuItem
+            // 
+            this.tabelaWiadomościToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.zapiszUstawieniaTabeliToolStripMenuItem});
+            this.tabelaWiadomościToolStripMenuItem.Name = "tabelaWiadomościToolStripMenuItem";
+            this.tabelaWiadomościToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.tabelaWiadomościToolStripMenuItem.Text = "Tabela Wiadomości";
+            // 
+            // zapiszUstawieniaTabeliToolStripMenuItem
+            // 
+            this.zapiszUstawieniaTabeliToolStripMenuItem.Name = "zapiszUstawieniaTabeliToolStripMenuItem";
+            this.zapiszUstawieniaTabeliToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.zapiszUstawieniaTabeliToolStripMenuItem.Text = "Zapisz ustawienia tabeli";
+            this.zapiszUstawieniaTabeliToolStripMenuItem.Click += new System.EventHandler(this.zapiszUstawieniaTabeliToolStripMenuItem_Click);
             // 
             // pomocToolStripMenuItem
             // 
@@ -77,6 +99,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Zamknij";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -86,11 +109,42 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Adresat,
+            this.Temat});
             this.dataGridView1.Location = new System.Drawing.Point(0, 71);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(583, 320);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "Id";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 40;
+            // 
+            // Adresat
+            // 
+            this.Adresat.DataPropertyName = "Adresat";
+            this.Adresat.HeaderText = "Adresat";
+            this.Adresat.Name = "Adresat";
+            this.Adresat.ReadOnly = true;
+            this.Adresat.Width = 150;
+            // 
+            // Temat
+            // 
+            this.Temat.DataPropertyName = "Temat";
+            this.Temat.HeaderText = "Temat";
+            this.Temat.Name = "Temat";
+            this.Temat.ReadOnly = true;
+            this.Temat.Width = 200;
             // 
             // button2
             // 
@@ -131,5 +185,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Adresat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Temat;
+        private System.Windows.Forms.ToolStripMenuItem tabelaWiadomościToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zapiszUstawieniaTabeliToolStripMenuItem;
     }
 }

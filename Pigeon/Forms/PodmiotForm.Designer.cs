@@ -64,13 +64,13 @@
             this.zapiszUstawieniaTabeliToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.widokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zamknijToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.widokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabelaAdresyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabelaKontaktyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zapiszUstawieniaTabeliToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabelaKontaktyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zapiszUstawieniaTabeliToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PodmiotTabs.SuspendLayout();
             this.OgólneTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdresyGrid)).BeginInit();
@@ -268,6 +268,9 @@
             // 
             this.KontaktyGrid.AllowUserToAddRows = false;
             this.KontaktyGrid.AllowUserToDeleteRows = false;
+            this.KontaktyGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.KontaktyGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.KontaktyGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.KontaktyGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -279,7 +282,7 @@
             this.KontaktyGrid.Name = "KontaktyGrid";
             this.KontaktyGrid.ReadOnly = true;
             this.KontaktyGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.KontaktyGrid.Size = new System.Drawing.Size(530, 228);
+            this.KontaktyGrid.Size = new System.Drawing.Size(530, 260);
             this.KontaktyGrid.TabIndex = 0;
             this.KontaktyGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.KontaktyGrid_CellDoubleClick);
             this.KontaktyGrid.MouseDown += new System.Windows.Forms.MouseEventHandler(this.KontaktyGrid_MouseDown);
@@ -419,6 +422,13 @@
             this.plikToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.plikToolStripMenuItem.Text = "Plik";
             // 
+            // zamknijToolStripMenuItem
+            // 
+            this.zamknijToolStripMenuItem.Name = "zamknijToolStripMenuItem";
+            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.zamknijToolStripMenuItem.Text = "Zamknij";
+            this.zamknijToolStripMenuItem.Click += new System.EventHandler(this.zamknijToolStripMenuItem_Click);
+            // 
             // widokToolStripMenuItem
             // 
             this.widokToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -428,19 +438,6 @@
             this.widokToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.widokToolStripMenuItem.Text = "Widok";
             // 
-            // pomocToolStripMenuItem
-            // 
-            this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
-            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.pomocToolStripMenuItem.Text = "Pomoc";
-            // 
-            // zamknijToolStripMenuItem
-            // 
-            this.zamknijToolStripMenuItem.Name = "zamknijToolStripMenuItem";
-            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.zamknijToolStripMenuItem.Text = "Zamknij";
-            this.zamknijToolStripMenuItem.Click += new System.EventHandler(this.zamknijToolStripMenuItem_Click);
-            // 
             // tabelaAdresyToolStripMenuItem
             // 
             this.tabelaAdresyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -448,6 +445,13 @@
             this.tabelaAdresyToolStripMenuItem.Name = "tabelaAdresyToolStripMenuItem";
             this.tabelaAdresyToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.tabelaAdresyToolStripMenuItem.Text = "Tabela Adresy";
+            // 
+            // zapiszUstawieniaTabeliToolStripMenuItem2
+            // 
+            this.zapiszUstawieniaTabeliToolStripMenuItem2.Name = "zapiszUstawieniaTabeliToolStripMenuItem2";
+            this.zapiszUstawieniaTabeliToolStripMenuItem2.Size = new System.Drawing.Size(198, 22);
+            this.zapiszUstawieniaTabeliToolStripMenuItem2.Text = "Zapisz ustawienia tabeli";
+            this.zapiszUstawieniaTabeliToolStripMenuItem2.Click += new System.EventHandler(this.zapiszUstawieniaTabeliToolStripMenuItem2_Click);
             // 
             // tabelaKontaktyToolStripMenuItem
             // 
@@ -457,19 +461,18 @@
             this.tabelaKontaktyToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.tabelaKontaktyToolStripMenuItem.Text = "Tabela Kontakty";
             // 
-            // zapiszUstawieniaTabeliToolStripMenuItem2
-            // 
-            this.zapiszUstawieniaTabeliToolStripMenuItem2.Name = "zapiszUstawieniaTabeliToolStripMenuItem2";
-            this.zapiszUstawieniaTabeliToolStripMenuItem2.Size = new System.Drawing.Size(198, 22);
-            this.zapiszUstawieniaTabeliToolStripMenuItem2.Text = "Zapisz ustawienia tabeli";
-            this.zapiszUstawieniaTabeliToolStripMenuItem2.Click += new System.EventHandler(this.zapiszUstawieniaTabeliToolStripMenuItem2_Click);
-            // 
             // zapiszUstawieniaTabeliToolStripMenuItem3
             // 
             this.zapiszUstawieniaTabeliToolStripMenuItem3.Name = "zapiszUstawieniaTabeliToolStripMenuItem3";
             this.zapiszUstawieniaTabeliToolStripMenuItem3.Size = new System.Drawing.Size(198, 22);
             this.zapiszUstawieniaTabeliToolStripMenuItem3.Text = "Zapisz ustawienia tabeli";
             this.zapiszUstawieniaTabeliToolStripMenuItem3.Click += new System.EventHandler(this.zapiszUstawieniaTabeliToolStripMenuItem3_Click);
+            // 
+            // pomocToolStripMenuItem
+            // 
+            this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
+            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.pomocToolStripMenuItem.Text = "Pomoc";
             // 
             // PodmiotForm
             // 
