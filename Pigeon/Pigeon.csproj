@@ -118,6 +118,12 @@
     <Compile Include="Forms\KontaktForm.Designer.cs">
       <DependentUpon>KontaktForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PleaseWaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PleaseWaitForm.Designer.cs">
+      <DependentUpon>PleaseWaitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PodmiotyGlowne.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,18 @@
     </Compile>
     <Compile Include="Forms\WiadomosciForm.Designer.cs">
       <DependentUpon>WiadomosciForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ZadaniaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ZadaniaForm.Designer.cs">
+      <DependentUpon>ZadaniaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ZadanieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ZadanieForm.Designer.cs">
+      <DependentUpon>ZadanieForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Kontakt.cs">
       <DependentUpon>Module.tt</DependentUpon>
@@ -204,6 +222,9 @@
     <EmbeddedResource Include="Forms\KontaktForm.resx">
       <DependentUpon>KontaktForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PleaseWaitForm.resx">
+      <DependentUpon>PleaseWaitForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PodmiotForm.resx">
       <DependentUpon>PodmiotForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +236,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WiadomosciForm.resx">
       <DependentUpon>WiadomosciForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ZadaniaForm.resx">
+      <DependentUpon>ZadaniaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ZadanieForm.resx">
+      <DependentUpon>ZadanieForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

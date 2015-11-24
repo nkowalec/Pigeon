@@ -26,7 +26,6 @@ namespace Pigeon
         public System.DateTime Data { get; set; }
         public TypPrzypomnienia Przypomnienie { get; set; }
         public int Wyprzedzenie { get; set; }
-        public System.TimeSpan Godzina { get; set; }
         public bool IsNotificate { get; set; }
     
         public virtual Podmiot Podmiot { get; set; }

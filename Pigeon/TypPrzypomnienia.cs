@@ -13,9 +13,10 @@ namespace Pigeon
     
     public enum TypPrzypomnienia : int
     {
-        Minuty = 0,
-        Godziny = 1,
-        Dni = 2,
-        Tygodnie = 3
+        Brak = 0,
+        Minuty = 1,
+        Godziny = 2,
+        Dni = 3,
+        Tygodnie = 4
     }
 }

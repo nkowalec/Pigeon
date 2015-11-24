@@ -70,6 +70,7 @@
             this.Zadania.TabIndex = 2;
             this.Zadania.Text = "Zadania\r\n(Zarządzaj zadaniami)";
             this.Zadania.UseVisualStyleBackColor = true;
+            this.Zadania.Click += new System.EventHandler(this.Zadania_Click);
             // 
             // Wiadomosci
             // 

@@ -22,6 +22,7 @@ namespace Pigeon.Forms
             InitializeComponent();
         }
 
+        #region IObjectForm
         public void CollectForm()
         {
             if (AdresatCombo.SelectedItem != null)
@@ -62,9 +63,12 @@ namespace Pigeon.Forms
                 button2.Enabled = false;
                 AddAdres.Enabled = false;
                 AdresatCombo.Enabled = false;
+                dataGridView2.Enabled = false;
             }
         }
+        #endregion
 
+        #region EVENTS
         private void WiadomoscForm_Load(object sender, EventArgs e)
         {
             if(Wiadomość.Id == 0)
@@ -148,6 +152,8 @@ namespace Pigeon.Forms
 
         private void SaveSendBtn_Click(object sender, EventArgs e)
         {
+            PleaseWaitForm form = new PleaseWaitForm();
+            form.Show();
             CollectForm();
             try
             {
@@ -165,10 +171,18 @@ namespace Pigeon.Forms
             {
                 MessageBox.Show("Napotkano błąd podczas wysyłania wiadomości, sprawdź konfigurację i połączenie internetowe: \n" + ex.Message);
             }
+            finally
+            {
+                form.Close();
+            }
+
 }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            PleaseWaitForm form = new PleaseWaitForm();
+            form.Show();
+            
             try
             {
                 Wiadomość.Wyslij();
@@ -176,6 +190,10 @@ namespace Pigeon.Forms
             catch (Exception ex)
             {
                 MessageBox.Show("Napotkano błąd podczas wysyłania wiadomości, sprawdź konfigurację i połączenie internetowe: \n" + ex.Message);
+            }
+            finally
+            {
+                form.Close();
             }
         }
 
@@ -208,8 +226,8 @@ namespace Pigeon.Forms
         {
             foreach (DataGridViewRow row in dataGridView2.SelectedRows)
             {
-                Załącznik adres = row.DataBoundItem as Załącznik;
-                Module.Załączniki.Remove(adres);
+                Załącznik zal = row.DataBoundItem as Załącznik;
+                Module.Załączniki.Remove(zal);
             }
             Module.SaveChanges();
             dataGridView2.DataSource = Module.Załączniki.ToList();
@@ -228,5 +246,6 @@ namespace Pigeon.Forms
                 }
             }
         }
+        #endregion
     }
 }

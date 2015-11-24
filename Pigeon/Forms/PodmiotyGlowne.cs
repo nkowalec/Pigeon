@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Pigeon.Properties;
 using Pigeon.Class;
+using Pigeon.Forms;
+using System.Threading;
 
 namespace Pigeon
 {
@@ -23,6 +25,9 @@ namespace Pigeon
         #region EVENTS
         private void Form1_Load(object sender, EventArgs e)
         {
+            PleaseWaitForm form = new PleaseWaitForm();
+            form.Show();
+
             PodmiotyGrid.AutoGenerateColumns = false;
             PodmiotyGrid.DataSource = module.Podmioty.ToList<Podmiot>();
             Pigeon.Class.GridView.SetGridSettings(ref PodmiotyGrid);
@@ -30,6 +35,7 @@ namespace Pigeon
 
             GridView.PrepareMenuStripItemGridColumns(ref PodmiotyGrid, ref tabelaPodmiotyToolStripMenuItem);
             Pomoc.AddPomocItemsToMenuStripItem(ref pomocToolStripMenuItem);
+            form.Close();
         }
 
         private void AddPodmiot_Click(object sender, EventArgs e)

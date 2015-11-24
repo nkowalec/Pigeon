@@ -16,14 +16,19 @@ namespace Pigeon.Forms
         public WiadomosciForm()
         {
             InitializeComponent();
+            PleaseWaitForm form = new PleaseWaitForm();
+            form.Show();
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = Module.Wiadomości.ToList();
             dataGridView1.Refresh();
 
+            Pigeon.Class.Pomoc.AddPomocItemsToMenuStripItem(ref pomocToolStripMenuItem);
             Pigeon.Class.GridView.SetGridSettings(ref dataGridView1);
             Pigeon.Class.GridView.PrepareMenuStripItemGridColumns(ref dataGridView1, ref tabelaWiadomościToolStripMenuItem);
+            form.Close();
         }
 
+        #region EVENTS
         private void button2_Click(object sender, EventArgs e)
         {
             Wiadomość wiad = new Wiadomość();
@@ -55,6 +60,12 @@ namespace Pigeon.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        #endregion
+
+        private void WiadomosciForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

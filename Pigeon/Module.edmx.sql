@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/19/2015 19:52:12
+-- Date Created: 11/24/2015 18:15:33
 -- Generated from EDMX file: C:\Projekty\Pigeon\Pigeon\Module.edmx
 -- --------------------------------------------------
 
@@ -130,7 +130,6 @@ CREATE TABLE [dbo].[Zadania] (
     [Data] datetime  NOT NULL,
     [Przypomnienie] int  NOT NULL,
     [Wyprzedzenie] int  NOT NULL,
-    [Godzina] time  NOT NULL,
     [IsNotificate] bit  NOT NULL,
     [Podmiot_Id] int  NOT NULL
 );

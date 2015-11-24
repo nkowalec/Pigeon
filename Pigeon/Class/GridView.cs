@@ -38,6 +38,7 @@ namespace Pigeon.Class
                 var xCol = new GridColumnVisible();
                 xCol.ColName = col.Name;
                 xCol.Visible = col.Visible;
+                xCol.Width = col.Width;
                 lista.Add(xCol);
             }
             view.ColumnVisible = lista;
@@ -80,6 +81,7 @@ namespace Pigeon.Class
                             if(colVisible.ColName == col.Name)
                             {
                                 col.Visible = colVisible.Visible;
+                                col.Width = colVisible.Width;
                                 break;
                             }
                         }
@@ -115,5 +117,7 @@ namespace Pigeon.Class
         public string ColName { get; set; }
         [XmlElement]
         public bool Visible { get; set; }
+        [XmlElement]
+        public int Width { get; set; }
     }
 }

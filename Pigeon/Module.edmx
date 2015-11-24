@@ -107,7 +107,6 @@
     <Property Name="Data" Type="datetime" Nullable="false" />
     <Property Name="Przypomnienie" Type="int" Nullable="false" />
     <Property Name="Wyprzedzenie" Type="int" Nullable="false" />
-    <Property Name="Godzina" Type="time" Nullable="false" />
     <Property Name="IsNotificate" Type="bit" Nullable="false" DefaultValue="false" />
     <Property Name="Podmiot_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -403,7 +402,6 @@
           <Property Name="Data" Type="DateTime" Nullable="false" />
           <Property Name="Przypomnienie" Type="PDBModel.TypPrzypomnienia" Nullable="false" />
           <Property Name="Wyprzedzenie" Type="Int32" Nullable="false" />
-          <Property Name="Godzina" Type="Time" Nullable="false" />
           <Property Name="IsNotificate" Type="Boolean" Nullable="false" DefaultValue="false" />
           <NavigationProperty Name="Podmiot" Relationship="PDBModel.ZadanieRowPodmiot" FromRole="ZadanieRow" ToRole="Podmiot" />
         </EntityType>
@@ -412,6 +410,7 @@
           <End Type="PDBModel.Podmiot" Role="Podmiot" Multiplicity="1" />
         </Association>
         <EnumType Name="TypPrzypomnienia">
+          <Member Name="Brak" />
           <Member Name="Minuty" />
           <Member Name="Godziny" />
           <Member Name="Dni" />
@@ -525,7 +524,6 @@
           <ScalarProperty Name="Data" ColumnName="Data" />
           <ScalarProperty Name="Przypomnienie" ColumnName="Przypomnienie" />
           <ScalarProperty Name="Wyprzedzenie" ColumnName="Wyprzedzenie" />
-          <ScalarProperty Name="Godzina" ColumnName="Godzina" />
           <ScalarProperty Name="IsNotificate" ColumnName="IsNotificate" />
         </MappingFragment>
       </EntityTypeMapping>

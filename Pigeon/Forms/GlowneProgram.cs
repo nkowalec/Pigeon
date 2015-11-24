@@ -43,5 +43,11 @@ namespace Pigeon.Forms
             WiadomosciForm form = new WiadomosciForm();
             form.Show();
         }
+
+        private void Zadania_Click(object sender, EventArgs e)
+        {
+            ZadaniaForm form = new ZadaniaForm();
+            form.Show();
+        }
     }
 }
