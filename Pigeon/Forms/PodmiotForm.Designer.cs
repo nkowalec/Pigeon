@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PodmiotForm));
             this.PodmiotTabs = new System.Windows.Forms.TabControl();
             this.OgólneTab = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
@@ -484,6 +485,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.PodmiotTabs);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(563, 338);
             this.Name = "PodmiotForm";

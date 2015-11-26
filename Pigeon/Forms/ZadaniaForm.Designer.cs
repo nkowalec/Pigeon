@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZadaniaForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zamknijToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,16 +39,16 @@
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.ZadaniaGrid = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.formularzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zapiszUstawieniaTabeliToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Opis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Przypomnienie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Wyprzedzenie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.formularzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuńToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zapiszUstawieniaTabeliToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ZadaniaGrid)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -144,36 +145,6 @@
             this.ZadaniaGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ZadaniaGrid_CellDoubleClick);
             this.ZadaniaGrid.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ZadaniaGrid_MouseDown);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.formularzToolStripMenuItem,
-            this.usuńToolStripMenuItem,
-            this.zapiszUstawieniaTabeliToolStripMenuItem1});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 70);
-            // 
-            // formularzToolStripMenuItem
-            // 
-            this.formularzToolStripMenuItem.Name = "formularzToolStripMenuItem";
-            this.formularzToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.formularzToolStripMenuItem.Text = "Formularz";
-            this.formularzToolStripMenuItem.Click += new System.EventHandler(this.formularzToolStripMenuItem_Click);
-            // 
-            // usuńToolStripMenuItem
-            // 
-            this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
-            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.usuńToolStripMenuItem.Text = "Usuń";
-            this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usuńToolStripMenuItem_Click);
-            // 
-            // zapiszUstawieniaTabeliToolStripMenuItem1
-            // 
-            this.zapiszUstawieniaTabeliToolStripMenuItem1.Name = "zapiszUstawieniaTabeliToolStripMenuItem1";
-            this.zapiszUstawieniaTabeliToolStripMenuItem1.Size = new System.Drawing.Size(198, 22);
-            this.zapiszUstawieniaTabeliToolStripMenuItem1.Text = "Zapisz ustawienia tabeli";
-            this.zapiszUstawieniaTabeliToolStripMenuItem1.Click += new System.EventHandler(this.zapiszUstawieniaTabeliToolStripMenuItem1_Click);
-            // 
             // ID
             // 
             this.ID.DataPropertyName = "Id";
@@ -217,6 +188,36 @@
             this.Wyprzedzenie.Name = "Wyprzedzenie";
             this.Wyprzedzenie.ReadOnly = true;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.formularzToolStripMenuItem,
+            this.usuńToolStripMenuItem,
+            this.zapiszUstawieniaTabeliToolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 70);
+            // 
+            // formularzToolStripMenuItem
+            // 
+            this.formularzToolStripMenuItem.Name = "formularzToolStripMenuItem";
+            this.formularzToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.formularzToolStripMenuItem.Text = "Formularz";
+            this.formularzToolStripMenuItem.Click += new System.EventHandler(this.formularzToolStripMenuItem_Click);
+            // 
+            // usuńToolStripMenuItem
+            // 
+            this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
+            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.usuńToolStripMenuItem.Text = "Usuń";
+            this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usuńToolStripMenuItem_Click);
+            // 
+            // zapiszUstawieniaTabeliToolStripMenuItem1
+            // 
+            this.zapiszUstawieniaTabeliToolStripMenuItem1.Name = "zapiszUstawieniaTabeliToolStripMenuItem1";
+            this.zapiszUstawieniaTabeliToolStripMenuItem1.Size = new System.Drawing.Size(198, 22);
+            this.zapiszUstawieniaTabeliToolStripMenuItem1.Text = "Zapisz ustawienia tabeli";
+            this.zapiszUstawieniaTabeliToolStripMenuItem1.Click += new System.EventHandler(this.zapiszUstawieniaTabeliToolStripMenuItem1_Click);
+            // 
             // ZadaniaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +226,7 @@
             this.Controls.Add(this.ZadaniaGrid);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ZadaniaForm";
             this.Text = "Zadania";

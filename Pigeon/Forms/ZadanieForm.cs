@@ -26,6 +26,16 @@ namespace Pigeon.Forms
             PrepareForm();
         }
 
+        public void BlockForm()
+        {
+            PodmiotCombo.Enabled = false;
+            NazwaText.Enabled = false;
+            dateTimePicker1.Enabled = false;
+            PrzypCombo.Enabled = false;
+            PrzedText.Enabled = false;
+            OpisText.Enabled = false;
+        }
+
         public void CollectForm()
         {
             if (PodmiotCombo.SelectedItem != null)
@@ -58,6 +68,7 @@ namespace Pigeon.Forms
 
             if (Zadanie.Przypomnienie == TypPrzypomnienia.Brak) PrzedText.Enabled = false;
             PrzedText.Text = Zadanie.Wyprzedzenie.ToString();
+            OpisText.Text = Zadanie.Opis;
         }
 
         private void ZadanieForm_Load(object sender, EventArgs e)
