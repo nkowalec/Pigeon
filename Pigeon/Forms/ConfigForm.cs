@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Pigeon.Class;
+using System.Text.RegularExpressions;
 
 namespace Pigeon.Forms
 {
@@ -25,9 +27,29 @@ namespace Pigeon.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             CollectForm();
-            Config.Update();
+            var komunikat = "";
+            var email = emailText.Text;
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(email);
+            if (!match.Success)
+            {
+                komunikat += email + " ma niepoprawną formę! \n";
 
-            this.Close();
+
+            }
+
+            if (komunikat != "" )
+            {
+                MessageBox.Show(komunikat);
+            }
+            else
+            {
+                Config.Update();
+
+                this.Close();
+            }
+
+
         }
 
         #endregion
