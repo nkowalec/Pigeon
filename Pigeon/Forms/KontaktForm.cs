@@ -39,7 +39,7 @@ namespace Pigeon.Forms
             CollectForm();
             var komunikat = "";
    
-            if (this.TypKontaktu.SelectedItem == TypKontaktu.Email_Prywatny|| this.TypKontaktu.SelectedItem == TypKontaktu.Email_Sluzbowy)
+            if ((TypKontaktu)this.TypKontaktu.SelectedItem == Pigeon.TypKontaktu.Email_Prywatny || (TypKontaktu)this.TypKontaktu.SelectedItem == Pigeon.TypKontaktu.Email_Służbowy)
             {
                 Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
                 Match match = regex.Match(WartoscText.Text);
