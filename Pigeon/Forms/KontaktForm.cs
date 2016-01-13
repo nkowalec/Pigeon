@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Pigeon.Class;
+using Pigeon;
+using System.Text.RegularExpressions;
 
 namespace Pigeon.Forms
 {
@@ -34,7 +37,23 @@ namespace Pigeon.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             CollectForm();
-            if(Kontakt.Id == 0)
+            var komunikat = "";
+   
+            if (this.TypKontaktu.SelectedItem == TypKontaktu.Email_Prywatny|| this.TypKontaktu.SelectedItem == TypKontaktu.Email_Sluzbowy)
+            {
+                Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+                Match match = regex.Match(WartoscText.Text);
+                if (!match.Success)
+                {
+                    komunikat += WartoscText + " - Nie jest poprawną formą maila! \n";
+                }
+                if (komunikat != "")
+                {
+                    MessageBox.Show(komunikat);
+                }
+                else
+                {
+                    if (Kontakt.Id == 0)
             {
                 Module.Kontakty.Add(Kontakt);
             }
@@ -49,7 +68,46 @@ namespace Pigeon.Forms
             {
                 MessageBox.Show(exc.InnerException.ToString());
             }
-            this.Close();
+
+                    this.Close();
+                }
+            }
+            else
+            {
+                Regex regex = new Regex(@"^([0-9]{9})$");
+                Match match = regex.Match(WartoscText.Text);
+                if (!match.Success)
+                {
+                    komunikat += WartoscText + " - Nie jest poprawną formą numeru telefonu! \n (przykładowo: 123456789) \n";
+                }
+                if (komunikat != "")
+                {
+                    MessageBox.Show(komunikat);
+                }
+                else
+                {
+                    if (Kontakt.Id == 0)
+                    {
+                        Module.Kontakty.Add(Kontakt);
+                    }
+                    try
+                    {
+                        Module.SaveChanges();
+                    }
+                    catch (System.Data.Entity.Validation.DbEntityValidationException exc)
+                    {
+                        MessageBox.Show(exc.EntityValidationErrors.First().ValidationErrors.First().ErrorMessage);
+                    }
+                    catch (System.Data.Entity.Infrastructure.DbUpdateException exc)
+                    {
+                        MessageBox.Show(exc.InnerException.ToString());
+                    }
+
+                    this.Close();
+                }
+            }
+                
+            
         }
         #endregion
 

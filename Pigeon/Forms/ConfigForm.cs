@@ -29,14 +29,15 @@ namespace Pigeon.Forms
             CollectForm();
             var komunikat = "";
             var email = emailText.Text;
+            
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             Match match = regex.Match(email);
+ 
             if (!match.Success)
             {
-                komunikat += email + " ma niepoprawną formę! \n";
-
-
+                komunikat += email + " - Nie jest poprawną formą maila! \n";
             }
+            
 
             if (komunikat != "" )
             {
