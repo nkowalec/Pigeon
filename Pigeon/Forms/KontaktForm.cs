@@ -45,7 +45,7 @@ namespace Pigeon.Forms
                 Match match = regex.Match(WartoscText.Text);
                 if (!match.Success)
                 {
-                    komunikat += WartoscText + " - Nie jest poprawną formą maila! \n";
+                    komunikat += WartoscText.Text + " - Nie jest poprawną formą maila! \n";
                 }
                 if (komunikat != "")
                 {
